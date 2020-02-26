@@ -10944,13 +10944,17 @@ body .top-right {
 }
 
 html .content,
-body .content {
+html .auth,
+body .content,
+body .auth {
   text-align: center;
   padding: 2em;
 }
 
 html .content .contents-box,
-body .content .contents-box {
+html .auth .contents-box,
+body .content .contents-box,
+body .auth .contents-box {
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -10958,8 +10962,32 @@ body .content .contents-box {
 }
 
 html .content .contents-box .content-title,
-body .content .contents-box .content-title {
+html .auth .contents-box .content-title,
+body .content .contents-box .content-title,
+body .auth .contents-box .content-title {
   margin-right: auto;
   margin-left: 2em;
+}
+
+html .auth,
+body .auth {
+  padding: 4em 18em 4em;
+}
+
+html .auth table,
+body .auth table {
+  margin: 2em;
+}
+
+html .auth table i,
+body .auth table i {
+  text-align: right;
+  padding-right: 0.2em;
+}
+
+html .auth table th,
+body .auth table th {
+  height: 4em;
+  text-align: left;
 }
 

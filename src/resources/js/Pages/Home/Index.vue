@@ -4,7 +4,9 @@
             <div class="items-right flex">
                 <div class="header-links items-under" style="padding: 1em">
                     <a href="">Login</a>
-                    <a href="">Register</a>
+                    <a href="/register">
+                        Register
+                    </a>
                 </div>
             </div>
         </header>
@@ -18,18 +20,18 @@
                         :data="tableData"
                         style="width: 100%; padding: 1.5em">
                     <el-table-column
-                            prop="date"
-                            label="Date"
-                            width="180">
-                    </el-table-column>
-                    <el-table-column
                             prop="name"
-                            label="Name"
+                            label="Author"
                             width="180">
                     </el-table-column>
                     <el-table-column
                             prop="address"
-                            label="Address">
+                            label="Title">
+                    </el-table-column>
+                    <el-table-column
+                            prop="date"
+                            label="Date"
+                            width="180">
                     </el-table-column>
                 </el-table>
             </div>

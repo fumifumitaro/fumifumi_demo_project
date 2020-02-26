@@ -89,6 +89,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/translation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/tightenco/ziggy" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/tijsverkoyen/css-to-inline-styles" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/webmozart/assert" />
