@@ -53,7 +53,8 @@
                         </td>
                     </tr>
                 </table>
-                <el-button type="primary" plain round style="width: 30%; margin-left: auto; margin-right: 2em;">送信
+                <el-button type="primary" plain round style="width: 30%; margin-left: auto; margin-right: 2em;">
+                    登録する
                 </el-button>
             </div>
         </div>
@@ -64,10 +65,10 @@
     export default {
         data() {
             return {
-                'name': '',
-                'email': '',
-                'password': '',
-                'password_confirmation': '',
+                name: '',
+                email: '',
+                password: '',
+                password_confirmation: '',
             }
         }
     }

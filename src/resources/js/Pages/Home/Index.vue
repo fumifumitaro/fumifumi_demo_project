@@ -3,7 +3,9 @@
         <header>
             <div class="items-right flex">
                 <div class="header-links items-under" style="padding: 1em">
-                    <a href="">Login</a>
+                    <a href="/login">
+                        Login
+                    </a>
                     <a href="/register">
                         Register
                     </a>
