@@ -3,20 +3,23 @@
         <header>
             <div class="items-right flex">
                 <div class="header-links items-under" style="padding: 1em">
-                    <a href="">Login</a>
+                    <a href="/login">
+                        Login
+                    </a>
+                    <a href="/logout">
+                        Logout
+                    </a>
                     <a href="/register">
                         Register
                     </a>
                 </div>
             </div>
         </header>
-
         <div class="auth">
             <div class="contents-box">
                 <div class="content-title">
                     <h2>会員登録</h2>
                 </div>
-
                 <table>
                     <tr>
                         <th>ユーザーネーム</th>
@@ -53,7 +56,13 @@
                         </td>
                     </tr>
                 </table>
-                <el-button type="primary" plain round style="width: 30%; margin-left: auto; margin-right: 2em;">
+                <el-button
+                        type="primary"
+                        plain
+                        round
+                        style="width: 30%; margin-left: auto; margin-right: 2em;"
+                        @click="submit"
+                >
                     登録する
                 </el-button>
             </div>
@@ -69,6 +78,37 @@
                 email: '',
                 password: '',
                 password_confirmation: '',
+            }
+        },
+
+        methods: {
+            submit: function () {
+                axios.post('register', {
+                    name: this.name,
+                    email: this.email,
+                    password: this.password,
+                    password_confirmation: this.password_confirmation,
+                })
+                    .then((res) => this.sentNotify())
+                    .catch((error) => this.errorNotify())
+            },
+            sentNotify: function () {
+                this.$notify.success({
+                    title: 'メールを送信しました',
+                    message: 'メールに貼られたリンクをクリックしてください',
+                    offset: 150,
+                    duration: 10000,
+                    showClose: false,
+                });
+            },
+            errorNotify: function () {
+                this.$notify.error({
+                    title: 'エラー',
+                    message: '入力値に誤りがあります。',
+                    offset: 150,
+                    duration: 10000,
+                    showClose: false,
+                });
             }
         }
     }

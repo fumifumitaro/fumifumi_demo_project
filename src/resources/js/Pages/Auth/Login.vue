@@ -3,20 +3,23 @@
         <header>
             <div class="items-right flex">
                 <div class="header-links items-under" style="padding: 1em">
-                    <a href="">Login</a>
+                    <a href="/login">
+                        Login
+                    </a>
+                    <a href="/logout">
+                        Logout
+                    </a>
                     <a href="/register">
                         Register
                     </a>
                 </div>
             </div>
         </header>
-
         <div class="auth">
             <div class="contents-box">
                 <div class="content-title">
                     <h2>ログイン</h2>
                 </div>
-
                 <table>
                     <tr>
                         <th>ユーザーネーム</th>
