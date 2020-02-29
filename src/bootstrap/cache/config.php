@@ -432,8 +432,8 @@
     'port' => '1025',
     'from' => 
     array (
-      'address' => NULL,
-      'name' => 'Laravel',
+      'address' => 'hello@example.com',
+      'name' => 'Example',
     ),
     'encryption' => NULL,
     'username' => NULL,
