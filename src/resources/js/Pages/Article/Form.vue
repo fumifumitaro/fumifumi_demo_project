@@ -6,17 +6,15 @@
                     <div class="content-title">
                         <h2>記事作成</h2>
                     </div>
-                    <div>
-                        <el-button
-                                type="primary"
-                                plain
-                                round
-                                style="margin-left: auto; margin-right: 2em;"
-                                @click="submit"
-                        >
-                            投稿する
-                        </el-button>
-                    </div>
+                    <el-button
+                            type="primary"
+                            plain
+                            round
+                            style="margin-left: auto; margin-right: 2em;"
+                            @click="submit"
+                    >
+                        投稿する
+                    </el-button>
                 </div>
                 <mavon-editor
                         :language="'ja'"

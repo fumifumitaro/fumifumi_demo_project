@@ -2,19 +2,30 @@
     <layout>
         <div class="content">
             <div class="contents-box">
-                <div class="content-title">
-                    <h2>記事一覧</h2>
+                <div class="contents-header">
+                    <div class="content-title">
+                        <h2>記事一覧</h2>
+                    </div>
+                    <el-button
+                            type="primary"
+                            plain
+                            round
+                            style="margin-left: auto; margin-right: 2em;"
+                            @click="goToForm"
+                    >
+                        記事を書く
+                    </el-button>
                 </div>
                 <el-table
                         :data="tableData"
                         style="width: 100%; padding: 1.5em">
                     <el-table-column
-                            prop="name"
+                            prop="username"
                             label="Author"
                             width="180">
                     </el-table-column>
                     <el-table-column
-                            prop="address"
+                            prop="content"
                             label="Title">
                     </el-table-column>
                     <el-table-column
@@ -35,25 +46,21 @@
         components: {
             Layout
         },
+        props: {
+            articles: {
+                type: Array,
+                required: false,
+                default: []
+            }
+        },
         data() {
             return {
-                tableData: [{
-                    date: '2016-05-03',
-                    name: 'Tom',
-                    address: 'No. 189, Grove St, Los Angeles'
-                }, {
-                    date: '2016-05-02',
-                    name: 'Tom',
-                    address: 'No. 189, Grove St, Los Angeles'
-                }, {
-                    date: '2016-05-04',
-                    name: 'Tom',
-                    address: 'No. 189, Grove St, Los Angeles'
-                }, {
-                    date: '2016-05-01',
-                    name: 'Tom',
-                    address: 'No. 189, Grove St, Los Angeles'
-                }]
+                tableData: this.articles
+            }
+        },
+        methods: {
+            goToForm: function () {
+                this.$inertia.visit(this.$route('article.create'))
             }
         }
     }
