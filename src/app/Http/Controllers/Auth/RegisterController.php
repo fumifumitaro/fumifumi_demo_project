@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -51,7 +52,8 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
-        return response()->json(['sent' => true]);
+        Auth::logout();
+        return response()->json(['sent' => true]); //return JSON response because catch an ajax request
     }
 
     /**
@@ -63,9 +65,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'name' => ['required', 'string', 'alpha_num', 'max:16', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:32', 'unique:users'],
+            'password' => ['required', 'string', 'min:4', 'confirmed'],
         ]);
     }
 

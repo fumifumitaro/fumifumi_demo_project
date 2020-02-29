@@ -3,13 +3,13 @@
         <header>
             <div class="items-right flex">
                 <div class="header-links items-under" style="padding: 1em">
-                    <a href="/login">
+                    <a :href="$route('login')">
                         Login
                     </a>
-                    <a href="/logout">
+                    <a :href="$route('logout')">
                         Logout
                     </a>
-                    <a href="/register">
+                    <a :href="$route('register')">
                         Register
                     </a>
                 </div>
@@ -22,12 +22,12 @@
                 </div>
                 <table>
                     <tr>
-                        <th>ユーザーネーム</th>
+                        <th>メールアドレス</th>
                         <td>
                             <i class="el-icon-user"></i>
                         </td>
                         <td>
-                            <el-input placeholder="Please input" v-model="name"></el-input>
+                            <el-input placeholder="Please input" v-model="email"></el-input>
                         </td>
                     </tr>
                     <tr>
@@ -40,7 +40,13 @@
                         </td>
                     </tr>
                 </table>
-                <el-button type="primary" plain round style="width: 30%; margin-left: auto; margin-right: 2em;">
+                <el-button
+                        type="primary"
+                        plain
+                        round
+                        style="width: 30%; margin-left: auto; margin-right: 2em;"
+                        @click="submit"
+                >
                     ログイン
                 </el-button>
             </div>
@@ -52,8 +58,16 @@
     export default {
         data() {
             return {
-                name: '',
+                email: '',
                 password: ''
+            }
+        },
+        methods: {
+            submit: function () {
+                this.$inertia.post(this.$route('login'), {
+                    email: this.email,
+                    password: this.password,
+                })
             }
         }
     }

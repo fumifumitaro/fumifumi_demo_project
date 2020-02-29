@@ -3,13 +3,13 @@
         <header>
             <div class="items-right flex">
                 <div class="header-links items-under" style="padding: 1em">
-                    <a href="/login">
+                    <a :href="$route('login')">
                         Login
                     </a>
-                    <a href="/logout">
+                    <a :href="$route('logout')">
                         Logout
                     </a>
-                    <a href="/register">
+                    <a :href="$route('register')">
                         Register
                     </a>
                 </div>
@@ -44,7 +44,7 @@
         },
         methods: {
             toTop: function() {
-                this.$inertia.visit('/')
+                this.$inertia.visit(this.$route('home'))
             }
         }
     }

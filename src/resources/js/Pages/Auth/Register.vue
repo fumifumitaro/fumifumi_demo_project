@@ -3,13 +3,13 @@
         <header>
             <div class="items-right flex">
                 <div class="header-links items-under" style="padding: 1em">
-                    <a href="/login">
+                    <a :href="$route('login')">
                         Login
                     </a>
-                    <a href="/logout">
+                    <a :href="$route('logout')">
                         Logout
                     </a>
-                    <a href="/register">
+                    <a :href="$route('register')">
                         Register
                     </a>
                 </div>
@@ -83,32 +83,14 @@
 
         methods: {
             submit: function () {
-                axios.post('register', {
+                axios.post(this.$route('register'), {
                     name: this.name,
                     email: this.email,
                     password: this.password,
                     password_confirmation: this.password_confirmation,
                 })
                     .then(res => this.sentNotify())
-                    .catch(function (error) {
-                        if (error.response) {
-                            // The request was made and the server responded with a status code
-                            // that falls out of the range of 2xx
-                            console.log(error.response.data);
-                            console.log(error.response.status);      // 例：400
-                            console.log(error.response.statusText);  // Bad Request
-                            console.log(error.response.headers);
-                        } else if (error.request) {
-                            // The request was made but no response was received
-                            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                            // http.ClientRequest in node.js
-                            console.log(error.request);
-                        } else {
-                            // Something happened in setting up the request that triggered an Error
-                            console.log('Error', error.message);
-                        }
-                        console.log(error.config);
-                    });
+                    .catch(err => this.errorNotify());
             },
             sentNotify: function () {
                 this.$notify.success({
