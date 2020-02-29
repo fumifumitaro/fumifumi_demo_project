@@ -9,6 +9,15 @@
   display: flex;
 }
 
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin shadow {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+}
+
 html, body {
   background-color: #fff;
   color: #636b6f;
@@ -22,7 +31,7 @@ html, body {
     height: 3em;
     width: 100%;
     background-color: #95c5ed;
-    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+    @include shadow;
 
     .header-links > a {
       color: #636b6f;
@@ -47,18 +56,10 @@ html, body {
     margin-top: auto;
   }
 
-  .full-height {
-    height: 100vh;
-  }
-
   .flex-center {
     align-items: center;
     display: flex;
     justify-content: center;
-  }
-
-  .position-ref {
-    position: relative;
   }
 
   .top-right {
@@ -69,14 +70,40 @@ html, body {
 
   .content {
     text-align: center;
+    padding: 2em;
+
+    .contents-box {
+      @include flex-column;
+      @include shadow;
+      padding: 2em 1em 3em;
+
+      .content-title {
+        margin-right: auto;
+        margin-left: 2em;
+      }
+    }
   }
 
-  .title {
-    font-size: 84px;
-  }
+  .auth {
+    @extend .content;
+    padding: 4em 18em 4em;
 
-  .m-b-md {
-    margin-bottom: 30px;
-  }
+    .sentence {
+      margin: 3em;
+    }
 
+    table {
+      margin: 2em;
+
+      i {
+        text-align: right;
+        padding-right: 0.2em;
+      }
+
+      th {
+        height: 4em;
+        text-align: left;
+      }
+    }
+  }
 }

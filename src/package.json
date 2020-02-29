@@ -23,9 +23,8 @@
     "sass": "^1.20.1",
     "sass-loader": "^8.0.0",
     "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "dependencies": {
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3"
+    "vue-template-compiler": "^2.6.11",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "element-ui": "^2.13.0"
   }
 }

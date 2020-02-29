@@ -11,4 +11,29 @@
 |
 */
 
-Route::get('/', 'HomeController');
+Route::get('/')->name('home')->uses('HomeController');
+
+Route::namespace('Auth')
+    ->group(function () {
+        Route::get('/login')->name('login')->uses('LoginController@showLoginForm');
+        Route::post('/login')->name('login')->uses('LoginController@login');
+
+        Route::get('/logout')->name('logout')->uses('LoginController@logout');
+        Route::get('password/confirm')->name('password.confirm')->uses('ConfirmPasswordController@showConfirmForm');
+        Route::post('password/confirm')->name('password.confirm')->uses('ConfirmPasswordController@confirm');
+        Route::post('password/email')->name('password.email')->uses('ForgotPasswordController@sendResetLinkEmail');
+        Route::get('password/reset')->name('password.request')->uses('ForgotPasswordController@showLinkRequestForm');
+        Route::post('password/reset')->name('password.update')->uses('ForgotPasswordController@reset');
+        Route::get('password/reset/{token}')->name('password.reset')->uses('ResetPasswordController@showResetForm');
+        Route::get('register')->name('register')->uses('RegisterController@showRegistrationForm');
+        Route::post('register')->name('register')->uses('RegisterController@register');
+
+        Route::prefix('email')
+            ->as('verification.')
+            ->group(function(){
+                Route::post('resend')->name('resend')->uses('VerificationController@resend');
+                Route::get('verify')->name('notice')->uses('VerificationController@show');
+                Route::get('verify/{id}/{hash}')->name('verify')->uses('VerificationController@verify');
+                Route::get('verified')->name('verified')->uses('VerificationController@verified');
+            });
+    });
