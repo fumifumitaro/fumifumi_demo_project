@@ -34,5 +34,6 @@ Route::namespace('Auth')
                 Route::post('resend')->name('resend')->uses('VerificationController@resend');
                 Route::get('verify')->name('notice')->uses('VerificationController@show');
                 Route::get('verify/{id}/{hash}')->name('verify')->uses('VerificationController@verify');
+                Route::get('verified')->name('verified')->uses('VerificationController@verified');
             });
     });

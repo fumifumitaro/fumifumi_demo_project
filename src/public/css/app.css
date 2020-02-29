@@ -10974,6 +10974,11 @@ body .auth {
   padding: 4em 18em 4em;
 }
 
+html .auth .sentence,
+body .auth .sentence {
+  margin: 3em;
+}
+
 html .auth table,
 body .auth table {
   margin: 2em;

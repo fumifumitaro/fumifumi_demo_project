@@ -88,6 +88,10 @@ html, body {
     @extend .content;
     padding: 4em 18em 4em;
 
+    .sentence {
+      margin: 3em;
+    }
+
     table {
       margin: 2em;
 
