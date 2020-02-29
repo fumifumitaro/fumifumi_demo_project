@@ -1,20 +1,5 @@
 <template>
-    <div>
-        <header>
-            <div class="items-right flex">
-                <div class="header-links items-under" style="padding: 1em">
-                    <a :href="$route('login')">
-                        Login
-                    </a>
-                    <a :href="$route('logout')">
-                        Logout
-                    </a>
-                    <a :href="$route('register')">
-                        Register
-                    </a>
-                </div>
-            </div>
-        </header>
+    <layout>
         <div class="auth">
             <div class="contents-box">
                 <div class="content-title">
@@ -34,16 +19,21 @@
                 </el-button>
             </div>
         </div>
-    </div>
+    </layout>
 </template>
 
 <script>
+    import Layout from '@/Pages/Base/Layout'
+
     export default {
-        created: function(){
+        components: {
+            Layout
+        },
+        created: function () {
             setTimeout(this.toTop, 2000)
         },
         methods: {
-            toTop: function() {
+            toTop: function () {
                 this.$inertia.visit(this.$route('home'))
             }
         }

@@ -26,5 +26,8 @@
     "vue-template-compiler": "^2.6.11",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "element-ui": "^2.13.0"
+  },
+  "dependencies": {
+    "mavon-editor": "^2.7.7"
   }
 }

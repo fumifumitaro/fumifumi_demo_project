@@ -9,7 +9,8 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use App\User;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class VerificationController extends Controller
 {
@@ -69,9 +70,9 @@ class VerificationController extends Controller
         }
 
         if ($user->markEmailAsVerified()) {
+            Auth::login($user);
             event(new Verified($request->user()));
         }
-
         return redirect($this->redirectPath())->with('verified', true);
     }
 

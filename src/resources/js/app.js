@@ -4,11 +4,13 @@ import Vue from 'vue'
 import { InertiaApp } from '@inertiajs/inertia-vue'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 import axios from 'axios'
 
 Vue.use(InertiaApp)
 Vue.use(ElementUI)
+Vue.use(mavonEditor)
 
 Vue.prototype.$route = (...args) => route(...args).url()
 

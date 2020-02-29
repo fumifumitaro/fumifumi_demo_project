@@ -13,6 +13,14 @@
 
 Route::get('/')->name('home')->uses('HomeController');
 
+Route::prefix('article')
+    ->as('article.')
+    ->namespace('Article')
+    ->group(function(){
+        Route::get('create')->name('create')->uses('CreateController@showForm');
+        Route::post('store')->name('store')->uses('CreateController@store');
+    });
+
 Route::namespace('Auth')
     ->group(function () {
         Route::get('/login')->name('login')->uses('LoginController@showLoginForm');

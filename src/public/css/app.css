@@ -10961,6 +10961,13 @@ body .auth .contents-box {
   padding: 2em 1em 3em;
 }
 
+html .content .contents-box .contents-header,
+html .auth .contents-box .contents-header,
+body .content .contents-box .contents-header,
+body .auth .contents-box .contents-header {
+  display: flex;
+}
+
 html .content .contents-box .content-title,
 html .auth .contents-box .content-title,
 body .content .contents-box .content-title,

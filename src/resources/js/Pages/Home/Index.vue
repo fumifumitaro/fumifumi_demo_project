@@ -1,21 +1,5 @@
 <template>
-    <div>
-        <header>
-            <div class="items-right flex">
-                <div class="header-links items-under" style="padding: 1em">
-                    <a :href="$route('login')">
-                        Login
-                    </a>
-                    <a :href="$route('logout')">
-                        Logout
-                    </a>
-                    <a :href="$route('register')">
-                        Register
-                    </a>
-                </div>
-            </div>
-        </header>
-
+    <layout>
         <div class="content">
             <div class="contents-box">
                 <div class="content-title">
@@ -41,11 +25,16 @@
                 </el-table>
             </div>
         </div>
-    </div>
+    </layout>
 </template>
 
 <script>
+    import Layout from '@/Pages/Base/Layout'
+
     export default {
+        components: {
+            Layout
+        },
         data() {
             return {
                 tableData: [{
