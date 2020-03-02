@@ -89,12 +89,13 @@
                     password_confirmation: this.password_confirmation,
                 })
                     .then(function (res) {
-                        this.error = {}
+                        this.error = {} //TODO:一気に消すのはよくないかも
                         this.sentNotify()
                     }.bind(this))
                     .catch(function (res) {
                         let err = res.response.data.errors
 
+                        //TODO:あんまいい書き方じゃない気がする
                         if (err.name) {
                             this.error.name = err.name[0]
                         } else {
