@@ -13,6 +13,7 @@
                         </td>
                         <td>
                             <el-input placeholder="Please input" v-model="name"></el-input>
+                            <a class="error_msg">{{ error.name }}</a>
                         </td>
                     </tr>
                     <tr>
@@ -22,6 +23,7 @@
                         </td>
                         <td>
                             <el-input placeholder="Please input" v-model="email"></el-input>
+                            <a class="error_msg">{{ error.email }}</a>
                         </td>
                     </tr>
                     <tr>
@@ -31,6 +33,7 @@
                         </td>
                         <td>
                             <el-input placeholder="Please input" v-model="password" show-password></el-input>
+                            <a class="error_msg">{{ error.password }}</a>
                         </td>
                     </tr>
                     <tr>
@@ -68,6 +71,12 @@
                 email: '',
                 password: '',
                 password_confirmation: '',
+
+                error: {
+                    name: '',
+                    email: '',
+                    password: '',
+                }
             }
         },
 
@@ -79,8 +88,31 @@
                     password: this.password,
                     password_confirmation: this.password_confirmation,
                 })
-                    .then(res => this.sentNotify())
-                    .catch(err => this.errorNotify());
+                    .then(function (res) {
+                        this.error = {}
+                        this.sentNotify()
+                    }.bind(this))
+                    .catch(function (res) {
+                        let err = res.response.data.errors
+
+                        if (err.name) {
+                            this.error.name = err.name[0]
+                        } else {
+                            this.error.name = ''
+                        }
+                        if (err.email) {
+                            this.error.email = err.email[0]
+                        } else {
+                            this.error.email = ''
+                        }
+                        if (err.password) {
+                            this.error.password = err.password[0]
+                        } else {
+                            this.error.password = ''
+                        }
+
+                        this.errorNotify()
+                    }.bind(this))
             },
             sentNotify: function () {
                 this.$notify.success({

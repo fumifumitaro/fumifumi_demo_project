@@ -108,6 +108,15 @@ html, body {
         height: 4em;
         text-align: left;
       }
+
+      td {
+        .error_msg {
+          @include flex;
+
+          margin-right: auto;
+          color: orangered;
+        }
+      }
     }
   }
 }

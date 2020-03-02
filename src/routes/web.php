@@ -16,6 +16,7 @@ Route::get('/')->name('home')->uses('HomeController');
 Route::prefix('article')
     ->as('article.')
     ->namespace('Article')
+    ->middleware('auth')
     ->group(function(){
         Route::get('create')->name('create')->uses('CreateController@showForm');
         Route::post('store')->name('store')->uses('CreateController@store');
