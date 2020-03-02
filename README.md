@@ -26,4 +26,7 @@ docker-compose run node npm run dev
 
 本プロジェクトのルートにてターミナルで上記実行後に下記URLでアクセスできます。 その後はdocker-compose up -dのみで問題ありません。
 
+ローカルサイト
 http://localhost:8883
+メールボックス
+http://localhost:3555
