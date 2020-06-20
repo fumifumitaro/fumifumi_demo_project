@@ -1,5 +1,6 @@
 # portfolio
 
+```
 docker-compose up -d --build
 
 docker-compose run composer install
@@ -23,6 +24,7 @@ exit
 docker-compose run node npm install
 
 docker-compose run node npm run dev
+```
 
 本プロジェクトのルートにてターミナルで上記実行後に下記URLでアクセスできます。 その後はdocker-compose up -dのみで問題ありません。
 
