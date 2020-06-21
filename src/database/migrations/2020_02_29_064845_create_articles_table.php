@@ -17,7 +17,7 @@ class CreateArticlesTable extends Migration
             $table->bigIncrements('id');
 
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->longText('content');
+            $table->longText('content')->comment('記事の内容');
 
             $table->foreign('user_id')->on('users')->references('id')->onDelete('cascade');
 

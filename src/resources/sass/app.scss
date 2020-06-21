@@ -78,12 +78,28 @@ html, body {
       padding: 2em 1em 3em;
 
       .contents-header {
-        @include flex
+        @include flex;
+        padding-bottom: 1em;
+        border-bottom: double 8px lightblue;
+        margin-bottom: 1.5em;
       }
 
       .content-title {
         margin-right: auto;
         margin-left: 2em;
+      }
+
+      table {
+        margin: 0 2em;
+        @include flex;
+
+        th {
+          padding: 1em;
+        }
+
+        td {
+          padding: 0.5em;
+        }
       }
     }
   }

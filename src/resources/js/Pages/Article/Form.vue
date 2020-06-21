@@ -16,10 +16,22 @@
                         投稿する
                     </el-button>
                 </div>
+                <table>
+                    <tr>
+                        <th>タイトル</th>
+                        <td>
+                            <i class="el-icon-postcard"></i>
+                        </td>
+                        <td>
+                            <el-input placeholder="Please input" v-model="title" style="width: 25em"></el-input>
+                            <a class="error_msg">{{ error.title }}</a>
+                        </td>
+                    </tr>
+                </table>
                 <mavon-editor
                         :language="'ja'"
                         v-model="content"
-                        style="border: solid 0.2em #afeeee; margin: 2em 1.5em;"
+                        style="border: solid 0.2em #afeeee; margin: 1em 1.5em;"
                 />
             </div>
         </div>
@@ -35,7 +47,13 @@
         },
         data() {
             return {
-                content: ''
+                title: '',
+                content: '',
+
+                error: {
+                    title: '',
+                    content: ''
+                }
             }
         },
         methods: {
