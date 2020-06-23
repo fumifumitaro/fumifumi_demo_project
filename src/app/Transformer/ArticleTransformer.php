@@ -14,6 +14,8 @@ class ArticleTransformer
             'id' => $article->id,
 
             'username' => $article->user->name,
+
+            'title' => $article->title,
             'content' => $article->content,
 
             'date' => $article->created_at->format('Y.m.d h:i'),

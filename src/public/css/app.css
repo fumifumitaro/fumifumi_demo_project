@@ -10903,6 +10903,11 @@ body header {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
+html header .logo h2,
+body header .logo h2 {
+  margin: 0.2em 1em;
+}
+
 html header .header-links > a,
 body header .header-links > a {
   color: #636b6f;
@@ -10979,26 +10984,53 @@ body .auth .contents-box .content-title {
   margin-left: 2em;
 }
 
-html .content .contents-box table,
-html .auth .contents-box table,
-body .content .contents-box table,
-body .auth .contents-box table {
+html .content .contents-box form,
+html .auth .contents-box form,
+body .content .contents-box form,
+body .auth .contents-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+html .content .contents-box form table,
+html .auth .contents-box form table,
+body .content .contents-box form table,
+body .auth .contents-box form table {
   margin: 0 2em;
   display: flex;
 }
 
-html .content .contents-box table th,
-html .auth .contents-box table th,
-body .content .contents-box table th,
-body .auth .contents-box table th {
+html .content .contents-box form table th,
+html .auth .contents-box form table th,
+body .content .contents-box form table th,
+body .auth .contents-box form table th {
   padding: 1em;
 }
 
-html .content .contents-box table td,
-html .auth .contents-box table td,
-body .content .contents-box table td,
-body .auth .contents-box table td {
+html .content .contents-box form table td,
+html .auth .contents-box form table td,
+body .content .contents-box form table td,
+body .auth .contents-box form table td {
   padding: 0.5em;
+}
+
+html .content .contents-box form table td .error_msg,
+html .auth .contents-box form table td .error_msg,
+body .content .contents-box form table td .error_msg,
+body .auth .contents-box form table td .error_msg {
+  display: flex;
+  margin-right: auto;
+  color: orangered;
+}
+
+html .content .contents-box form .error-content,
+html .auth .contents-box form .error-content,
+body .content .contents-box form .error-content,
+body .auth .contents-box form .error-content {
+  color: orangered;
+  margin-right: auto;
+  margin-left: 2em;
+  position: absolute;
 }
 
 html .auth,
