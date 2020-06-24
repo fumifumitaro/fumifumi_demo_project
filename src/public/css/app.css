@@ -10903,6 +10903,11 @@ body header {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
+html header .logo h2,
+body header .logo h2 {
+  margin: 0.2em 1em;
+}
+
 html header .header-links > a,
 body header .header-links > a {
   color: #636b6f;
@@ -10966,6 +10971,9 @@ html .auth .contents-box .contents-header,
 body .content .contents-box .contents-header,
 body .auth .contents-box .contents-header {
   display: flex;
+  padding-bottom: 1em;
+  border-bottom: double 8px lightblue;
+  margin-bottom: 1.5em;
 }
 
 html .content .contents-box .content-title,
@@ -10974,6 +10982,64 @@ body .content .contents-box .content-title,
 body .auth .contents-box .content-title {
   margin-right: auto;
   margin-left: 2em;
+}
+
+html .content .contents-box .article-content,
+html .auth .contents-box .article-content,
+body .content .contents-box .article-content,
+body .auth .contents-box .article-content {
+  margin: auto;
+  width: 25em;
+  text-align: left;
+}
+
+html .content .contents-box form,
+html .auth .contents-box form,
+body .content .contents-box form,
+body .auth .contents-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+html .content .contents-box form table,
+html .auth .contents-box form table,
+body .content .contents-box form table,
+body .auth .contents-box form table {
+  margin: 0 2em;
+  display: flex;
+}
+
+html .content .contents-box form table th,
+html .auth .contents-box form table th,
+body .content .contents-box form table th,
+body .auth .contents-box form table th {
+  padding: 1em;
+}
+
+html .content .contents-box form table td,
+html .auth .contents-box form table td,
+body .content .contents-box form table td,
+body .auth .contents-box form table td {
+  padding: 0.5em;
+}
+
+html .content .contents-box form table td .error_msg,
+html .auth .contents-box form table td .error_msg,
+body .content .contents-box form table td .error_msg,
+body .auth .contents-box form table td .error_msg {
+  display: flex;
+  margin-right: auto;
+  color: orangered;
+}
+
+html .content .contents-box form .error-content,
+html .auth .contents-box form .error-content,
+body .content .contents-box form .error-content,
+body .auth .contents-box form .error-content {
+  color: orangered;
+  margin-right: auto;
+  margin-left: 2em;
+  position: absolute;
 }
 
 html .auth,

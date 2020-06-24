@@ -7,7 +7,8 @@
     "watch-poll": "npm run watch -- --watch-poll",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prettier": "prettier-eslint $PWD/'resources/js/**/*.{js,vue,css}' --write"
   },
   "devDependencies": {
     "@inertiajs/inertia": "^0.1.7",
@@ -25,9 +26,13 @@
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "element-ui": "^2.13.0"
+    "element-ui": "^2.13.0",
+    "prettier": "^1.19.1",
+    "prettier-eslint": "^9.0.0",
+    "prettier-eslint-cli": "^5.0.0"
   },
   "dependencies": {
-    "mavon-editor": "^2.7.7"
+    "mavon-editor": "^2.7.7",
+    "prettier": "^2.0.5"
   }
 }
