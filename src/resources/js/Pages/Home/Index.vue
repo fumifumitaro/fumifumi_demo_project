@@ -21,11 +21,9 @@
           style="width: 100%; padding: 1.5em;"
           @row-click="goToArticle"
         >
-          <el-table-column prop="username" label="Author" width="180">
-          </el-table-column>
-          <el-table-column prop="title" label="Title"> </el-table-column>
-          <el-table-column prop="date" label="Date" width="180">
-          </el-table-column>
+          <el-table-column prop="username" label="Author" width="180" />
+          <el-table-column prop="title" label="Title" />
+          <el-table-column prop="date" label="Date" width="180" />
         </el-table>
       </div>
     </div>

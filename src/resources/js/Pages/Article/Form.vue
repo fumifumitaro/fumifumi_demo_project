@@ -1,7 +1,7 @@
 <template>
   <layout>
     <div class="content">
-      <div class="contents-box">
+      <div class="contents-box" style="max-width: initial;">
         <div class="contents-header">
           <div class="content-title">
             <h2>記事作成</h2>
@@ -10,7 +10,7 @@
             type="primary"
             plain
             round
-            style="margin-left: auto; margin-right: 2em;"
+            style="margin-left: auto margin-right: 2em"
             @click="submit"
           >
             投稿する
@@ -21,14 +21,14 @@
             <tr>
               <th>タイトル</th>
               <td>
-                <i class="el-icon-postcard"></i>
+                <i class="el-icon-postcard" />
               </td>
               <td>
                 <el-input
                   placeholder="Please input"
                   v-model="form.title"
                   style="width: 25em;"
-                ></el-input>
+                />
                 <a class="error_msg">{{ error.title }}</a>
               </td>
             </tr>
@@ -38,7 +38,7 @@
             <mavon-editor
               :language="'ja'"
               v-model="form.content"
-              style="border: solid 0.2em #afeeee; margin: 1.2em 1.5em;"
+              style="border: solid 0.2em #afeeee margin: 1.2em 1.5em"
             />
           </div>
         </form>
@@ -99,6 +99,7 @@ export default {
         duration: 10000,
         showClose: false,
       });
+      setTimeout(this.toTop, 2000);
     },
     errorNotify: function () {
       this.$notify.error({
@@ -108,6 +109,9 @@ export default {
         duration: 10000,
         showClose: false,
       });
+    },
+    toTop: function () {
+      this.$inertia.visit(this.$route("home"));
     },
   },
 };

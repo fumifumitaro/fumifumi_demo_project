@@ -69,7 +69,10 @@ class LoginController extends Controller
                 'string',
             ],
         ], [
-            'email.exists' => '',
+            'email.exists' => 'メールアドレスの認証が済んでいません',
+        ],[
+            'email' => 'メールアドレス',
+            'password' => 'パスワード'
         ]);
     }
 }

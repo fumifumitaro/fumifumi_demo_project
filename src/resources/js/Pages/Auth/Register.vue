@@ -9,34 +9,34 @@
           <tr>
             <th>ユーザーネーム</th>
             <td>
-              <i class="el-icon-user"></i>
+              <i class="el-icon-user" />
             </td>
             <td>
-              <el-input placeholder="Please input" v-model="name"></el-input>
+              <el-input placeholder="Please input" v-model="name" />
               <a class="error_msg">{{ error.name }}</a>
             </td>
           </tr>
           <tr>
             <th>メールアドレス</th>
             <td>
-              <i class="el-icon-message"></i>
+              <i class="el-icon-message" />
             </td>
             <td>
-              <el-input placeholder="Please input" v-model="email"></el-input>
+              <el-input placeholder="Please input" v-model="email" />
               <a class="error_msg">{{ error.email }}</a>
             </td>
           </tr>
           <tr>
             <th>パスワード</th>
             <td>
-              <i class="el-icon-key"></i>
+              <i class="el-icon-key" />
             </td>
             <td>
               <el-input
                 placeholder="Please input"
                 v-model="password"
                 show-password
-              ></el-input>
+              />
               <a class="error_msg">{{ error.password }}</a>
             </td>
           </tr>
@@ -47,7 +47,7 @@
                 placeholder="Please input"
                 v-model="password_confirmation"
                 show-password
-              ></el-input>
+              />
             </td>
           </tr>
         </table>

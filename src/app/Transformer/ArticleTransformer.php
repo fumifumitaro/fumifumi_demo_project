@@ -21,7 +21,7 @@ class ArticleTransformer
             'title' => $article->title,
             'content' => $parse->text($article->content),
 
-            'date' => $article->created_at->format('Y.m.d h:i'),
+            'date' => $article->created_at->format('Y/m/d h:i'),
         ];
 
         return $data;

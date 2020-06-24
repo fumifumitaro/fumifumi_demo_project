@@ -14,6 +14,10 @@
   flex-direction: column;
 }
 
+@mixin center {
+  margin: auto;
+}
+
 @mixin shadow {
   box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
 }
@@ -81,11 +85,14 @@ html, body {
   .content {
     text-align: center;
     padding: 2em;
+    @include flex-column;
 
     .contents-box {
       @include flex-column;
       @include shadow;
       padding: 2em 1em 3em;
+      @include center;
+      width: 50em;
 
       .contents-header {
         @include flex;

@@ -35,4 +35,12 @@ class CreateRequest extends FormRequest
             ],
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'タイトル',
+            'content' => '記事本文'
+        ];
+    }
 }
