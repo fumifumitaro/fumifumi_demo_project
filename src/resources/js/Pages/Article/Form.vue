@@ -34,12 +34,12 @@
             </tr>
           </table>
           <div class="flex flex-column">
-          <a class="error-content">{{ error.content }}</a>
-          <mavon-editor
-            :language="'ja'"
-            v-model="form.content"
-            style="border: solid 0.2em #afeeee; margin: 1.2em 1.5em;"
-          />
+            <a class="error-content">{{ error.content }}</a>
+            <mavon-editor
+              :language="'ja'"
+              v-model="form.content"
+              style="border: solid 0.2em #afeeee; margin: 1.2em 1.5em;"
+            />
           </div>
         </form>
       </div>

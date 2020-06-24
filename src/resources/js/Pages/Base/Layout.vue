@@ -36,9 +36,9 @@ export default {
     }
   },
   methods: {
-    goToHome: function(){
-      this.$inertia.visit(this.$route('home'))
-    }
-  }
+    goToHome: function () {
+      this.$inertia.visit(this.$route("home"));
+    },
+  },
 };
 </script>

@@ -10984,6 +10984,15 @@ body .auth .contents-box .content-title {
   margin-left: 2em;
 }
 
+html .content .contents-box .article-content,
+html .auth .contents-box .article-content,
+body .content .contents-box .article-content,
+body .auth .contents-box .article-content {
+  margin: auto;
+  width: 25em;
+  text-align: left;
+}
+
 html .content .contents-box form,
 html .auth .contents-box form,
 body .content .contents-box form,

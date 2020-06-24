@@ -16,7 +16,11 @@
             記事を書く
           </el-button>
         </div>
-        <el-table :data="tableData" style="width: 100%; padding: 1.5em;">
+        <el-table
+          :data="tableData"
+          style="width: 100%; padding: 1.5em;"
+          @row-click="goToArticle"
+        >
           <el-table-column prop="username" label="Author" width="180">
           </el-table-column>
           <el-table-column prop="title" label="Title"> </el-table-column>
@@ -50,6 +54,9 @@ export default {
   methods: {
     goToForm: function () {
       this.$inertia.visit(this.$route("article.create"));
+    },
+    goToArticle(article) {
+      this.$inertia.visit(this.$route("article.show", article.id));
     },
   },
 };

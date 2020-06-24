@@ -99,6 +99,12 @@ html, body {
         margin-left: 2em;
       }
 
+      .article-content {
+        margin: auto;
+        width: 25em;
+        text-align: left;
+      }
+
       form {
         @include flex-column;
         table {
