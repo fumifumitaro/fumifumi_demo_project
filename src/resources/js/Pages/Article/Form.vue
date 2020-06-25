@@ -1,16 +1,16 @@
 <template>
   <layout>
     <div class="content">
-      <div class="contents-box" style="max-width: initial;">
-        <div class="contents-header">
-          <div class="content-title">
+      <div class="article-form-box">
+        <div class="article-form-header">
+          <div class="article-form-title">
             <h2>記事作成</h2>
           </div>
           <el-button
             type="primary"
             plain
             round
-            style="margin-left: auto margin-right: 2em"
+            style="margin-left: auto; margin-right: 2em"
             @click="submit"
           >
             投稿する
@@ -38,7 +38,7 @@
             <mavon-editor
               :language="'ja'"
               v-model="form.content"
-              style="border: solid 0.2em #afeeee margin: 1.2em 1.5em"
+              style="border: solid 0.2em #afeeee; margin: 1.2em 1.5em;"
             />
           </div>
         </form>
@@ -95,6 +95,7 @@ export default {
     sentNotify: function () {
       this.$notify.success({
         title: "保存しました",
+        message: "トップに戻ります",
         offset: 150,
         duration: 10000,
         showClose: false,

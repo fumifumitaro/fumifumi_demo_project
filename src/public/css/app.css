@@ -11041,49 +11041,78 @@ body .auth .contents-box .article-content {
   text-align: left;
 }
 
-html .content .contents-box form,
-html .auth .contents-box form,
-body .content .contents-box form,
-body .auth .contents-box form {
+html .content .article-form-box,
+html .auth .article-form-box,
+body .content .article-form-box,
+body .auth .article-form-box {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 2em 1em 3em;
+  margin: auto;
+}
+
+html .content .article-form-box .article-form-header,
+html .auth .article-form-box .article-form-header,
+body .content .article-form-box .article-form-header,
+body .auth .article-form-box .article-form-header {
+  display: flex;
+  padding-bottom: 1em;
+  border-bottom: double 8px lightblue;
+  margin-bottom: 1.5em;
+}
+
+html .content .article-form-box .article-form-title,
+html .auth .article-form-box .article-form-title,
+body .content .article-form-box .article-form-title,
+body .auth .article-form-box .article-form-title {
+  margin-right: auto;
+  margin-left: 2em;
+}
+
+html .content .article-form-box form,
+html .auth .article-form-box form,
+body .content .article-form-box form,
+body .auth .article-form-box form {
   display: flex;
   flex-direction: column;
 }
 
-html .content .contents-box form table,
-html .auth .contents-box form table,
-body .content .contents-box form table,
-body .auth .contents-box form table {
+html .content .article-form-box form table,
+html .auth .article-form-box form table,
+body .content .article-form-box form table,
+body .auth .article-form-box form table {
   margin: 0 2em;
   display: flex;
 }
 
-html .content .contents-box form table th,
-html .auth .contents-box form table th,
-body .content .contents-box form table th,
-body .auth .contents-box form table th {
+html .content .article-form-box form table th,
+html .auth .article-form-box form table th,
+body .content .article-form-box form table th,
+body .auth .article-form-box form table th {
   padding: 1em;
 }
 
-html .content .contents-box form table td,
-html .auth .contents-box form table td,
-body .content .contents-box form table td,
-body .auth .contents-box form table td {
+html .content .article-form-box form table td,
+html .auth .article-form-box form table td,
+body .content .article-form-box form table td,
+body .auth .article-form-box form table td {
   padding: 0.5em;
 }
 
-html .content .contents-box form table td .error_msg,
-html .auth .contents-box form table td .error_msg,
-body .content .contents-box form table td .error_msg,
-body .auth .contents-box form table td .error_msg {
+html .content .article-form-box form table td .error_msg,
+html .auth .article-form-box form table td .error_msg,
+body .content .article-form-box form table td .error_msg,
+body .auth .article-form-box form table td .error_msg {
   display: flex;
   margin-right: auto;
   color: orangered;
 }
 
-html .content .contents-box form .error-content,
-html .auth .contents-box form .error-content,
-body .content .contents-box form .error-content,
-body .auth .contents-box form .error-content {
+html .content .article-form-box form .error-content,
+html .auth .article-form-box form .error-content,
+body .content .article-form-box form .error-content,
+body .auth .article-form-box form .error-content {
   color: orangered;
   margin-right: auto;
   margin-left: 2em;

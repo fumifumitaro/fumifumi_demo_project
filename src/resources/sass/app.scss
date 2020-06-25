@@ -111,9 +111,28 @@ html, body {
         width: 25em;
         text-align: left;
       }
+    }
+    .article-form-box {
+      @include flex-column;
+      @include shadow;
+      padding: 2em 1em 3em;
+      @include center;
+
+      .article-form-header {
+        @include flex;
+        padding-bottom: 1em;
+        border-bottom: double 8px lightblue;
+        margin-bottom: 1.5em;
+      }
+
+      .article-form-title {
+        margin-right: auto;
+        margin-left: 2em;
+      }
 
       form {
         @include flex-column;
+
         table {
           margin: 0 2em;
           @include flex;
@@ -125,11 +144,11 @@ html, body {
           td {
             padding: 0.5em;
 
-              .error_msg {
-                @include flex;
+            .error_msg {
+              @include flex;
 
-                margin-right: auto;
-                @include error-color;
+              margin-right: auto;
+              @include error-color;
             }
           }
         }
