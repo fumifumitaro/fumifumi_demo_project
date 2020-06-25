@@ -11,6 +11,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/lexer" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/dragonmantank/cron-expression" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/egulias/email-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/erusev/parsedown" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/facade/flare-client-php" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/facade/ignition" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/facade/ignition-contracts" />
@@ -82,6 +83,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-php72" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-php80" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/process" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/routing" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/service-contracts" />

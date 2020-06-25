@@ -13,13 +13,20 @@
 
 Route::get('/')->name('home')->uses('HomeController');
 
-Route::prefix('article')
-    ->as('article.')
-    ->namespace('Article')
-    ->group(function(){
-        Route::get('create')->name('create')->uses('CreateController@showForm');
-        Route::post('store')->name('store')->uses('CreateController@store');
-    });
+Route::post('/media/upload')->name('media.upload')->uses('MediaController@store');
+
+Route::group([
+    'prefix' => 'article',
+    'as' => 'article.',
+    'namespace' => 'Article'
+], function () {
+    Route::middleware('auth')
+        ->group(function () {
+            Route::get('create')->name('create')->uses('CreateController@showForm');
+            Route::post('store')->name('store')->uses('CreateController@store');
+        });
+    Route::get('{article}')->name('show')->uses('ShowController'); // FIXME: Authミドルウェアグループの上に置きたいけど何故か認識されない
+});
 
 Route::namespace('Auth')
     ->group(function () {
@@ -38,7 +45,7 @@ Route::namespace('Auth')
 
         Route::prefix('email')
             ->as('verification.')
-            ->group(function(){
+            ->group(function () {
                 Route::post('resend')->name('resend')->uses('VerificationController@resend');
                 Route::get('verify')->name('notice')->uses('VerificationController@show');
                 Route::get('verify/{id}/{hash}')->name('verify')->uses('VerificationController@verify');

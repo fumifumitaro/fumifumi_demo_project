@@ -5,18 +5,23 @@ namespace App\Transformer;
 
 
 use App\Models\Article;
+use Parsedown;
 
 class ArticleTransformer
 {
     public function __invoke(Article $article)
     {
+        $parse = new Parsedown();
+
         $data = [
             'id' => $article->id,
 
             'username' => $article->user->name,
-            'content' => $article->content,
 
-            'date' => $article->created_at->format('Y.m.d h:i'),
+            'title' => $article->title,
+            'content' => $parse->text($article->content),
+
+            'date' => $article->created_at->format('Y/m/d h:i'),
         ];
 
         return $data;
