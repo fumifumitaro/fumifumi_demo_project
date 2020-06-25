@@ -117,6 +117,7 @@ html, body {
       @include shadow;
       padding: 2em 1em 3em;
       @include center;
+      width: 75em;
 
       .article-form-header {
         @include flex;

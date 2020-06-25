@@ -13,6 +13,8 @@
 
 Route::get('/')->name('home')->uses('HomeController');
 
+Route::post('/media/upload')->name('media.upload')->uses('MediaController@store');
+
 Route::group([
     'prefix' => 'article',
     'as' => 'article.',
@@ -23,7 +25,7 @@ Route::group([
             Route::get('create')->name('create')->uses('CreateController@showForm');
             Route::post('store')->name('store')->uses('CreateController@store');
         });
-    Route::get('{article}')->name('show')->uses('ShowController'); // FIXME: authミドルウェアグループの上に置きたいけど何故か認識されない
+    Route::get('{article}')->name('show')->uses('ShowController'); // FIXME: Authミドルウェアグループの上に置きたいけど何故か認識されない
 });
 
 Route::namespace('Auth')

@@ -38,6 +38,9 @@
             <mavon-editor
               :language="'ja'"
               v-model="form.content"
+              @imgAdd="$imgAdd"
+              :toolbars="toolbars"
+              ref="me"
               style="border: solid 0.2em #afeeee; margin: 1.2em 1.5em;"
             />
           </div>
@@ -65,6 +68,39 @@ export default {
         title: "",
         content: "",
       },
+
+      toolbars: {
+        bold: true,
+        italic: true,
+        header: true,
+        underline: true,
+        strikethrough: true,
+        mark: true,
+        superscript: true,
+        subscript: true,
+        quote: true,
+        ol: true,
+        ul: true,
+        link: true,
+        imagelink: true,
+        code: true,
+        table: true,
+        help: true,
+        alignleft: true,
+        aligncenter: true,
+        alignright: true,
+        subfield: true,
+        preview: true,
+        // false
+        undo: false,
+        redo: false,
+        fullscreen: false,
+        readmodel: false,
+        htmlcode: false,
+        trash: false,
+        save: false,
+        navigation: false,
+      }
     };
   },
   methods: {
@@ -114,6 +150,19 @@ export default {
     toTop: function () {
       this.$inertia.visit(this.$route("home"));
     },
+    $imgAdd(pos, $file){
+            var data = new FormData();
+      data.append('image', $file);
+      axios({
+        url: this.$route('media.upload'),
+        method: 'post',
+        data: data,
+        headers: { 'Content-Type': 'multipart/form-data' },
+      }).then((url) => {
+        console.log(pos, url)
+        this.$refs.me.$img2Url(pos, url.data)
+      })
+    }
   },
 };
 </script>
