@@ -3,10 +3,6 @@ FROM php:7.3.5-fpm-alpine
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /composer
 
-RUN set -eux && \
-  apk update && \
-  apk add --update --no-cache unzip && \
-  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
-  composer config -g repos.packagist composer https://packagist.jp
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 ENTRYPOINT ["composer"]
