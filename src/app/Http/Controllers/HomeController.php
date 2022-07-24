@@ -42,14 +42,12 @@ class HomeController extends Controller
             'created_at'
         ]);
 
-        $timeline_cache_public_query = $this->common_filters($timeline_cache_public_query, $request);
+        $timeline_cache_common_query = $this->common_filters($timeline_cache_public_query, $request);
 
-        $timeline_cache_follow_query = clone $timeline_cache_public_query;
-        $timeline_cache_follow_query = $this->member_query($timeline_cache_follow_query, $request);
+        $timeline_cache_public_query = $this->addition_query(clone $timeline_cache_common_query, $request);
+        $timeline_cache_follow_query = $this->member_query(clone $timeline_cache_common_query, $request);
 
-        $timeline_cache_public_query = $this->addition_query($timeline_cache_public_query);
-
-        $timeline_cache_public_query->union($timeline_cache_follow_query);
+        $timeline_cache_public_query->union($timeline_cache_follow_query->toBase());
 
         // videoとmediaで分岐してない方　ORDER句
         if (!empty($arrayParam['timeline_id']) && $normalSort) {
@@ -57,6 +55,7 @@ class HomeController extends Controller
         } else if (isset($orderTimelineIds) && !$normalSort) {
             $timeline_cache_public_query->orderRaw(implode($orderTimelineIds));
         }
+
         $timeline_cache_public_query->orderByDesc('created_at');
 
         if ($keyword) $timeline_cache_public_query->where('keyword', 'like', "%{$keyword}%");
@@ -71,10 +70,7 @@ class HomeController extends Controller
         $timeline_cache_public_query->limit($limit);
         $timeline_cache_public_query->offset($offset);
 
-        $query->get()
-            ->transform(function ($v) {
-                return [];
-            })->toArray();
+        $timeline_cache_public_query->get()->toArray();
     }
 
     private function common_filters(Builder $query, Request $request): Builder
@@ -130,49 +126,32 @@ class HomeController extends Controller
             });
     }
 
-    private function addition_query()
+    private function addition_query(Builder $query, Request $request): Builder
     {
-        // clone後にこっちのwhereとして追加
-        if (!is_null($keyword)) {
-            if (strpos($keyword, '_') !== false) {
-                $arrayParam['keyword'] = str_replace("_", "#_", $keyword);
-            }
-            if (strpos($keyword, '%') !== false) {
-                $arrayParam['keyword'] = str_replace("%", "#%", $keyword);
-            }
-            $timeline_cache_public_query->where('description', 'like', "%{$keyword}%");
-            $timeline_cache_public_query->whereRaw("ESCAPE '#'");
-        }
-
-        $timeline_cache_public_query->where('is_follow', 0);
-        $timeline_cache_public_query->where('public_scope', 1);
-
-        $timeline_cache_public_query->whereHas('timeline', function ($q) {
-            $q->where('is_draft', 0);
-            $q->where('deleted_flg', 0);
-            $q->where('exam_status', 1);
-        });
-
-        if ($is_recommend) $timeline_cache_public_query->where('is_recommend', 1);
-        if ($is_fullscreen_video) $timeline_cache_public_query->where('is_fullscreen_video', 1);
-
-        //Check filter by keyword
-        if (!is_null($arrayParam['keyword'])) {
-            $escape = "";
-            if (strpos($arrayParam['keyword'], '_') !== false) {
-                $arrayParam['keyword'] = str_replace("_", "#_", $arrayParam['keyword']);
-                $escape = "ESCAPE '#' ";
-            }
-            if (strpos($arrayParam['keyword'], '%') !== false) {
-                $arrayParam['keyword'] = str_replace("%", "#%", $arrayParam['keyword']);
-                $escape = "ESCAPE '#' ";
+        return $query->where(function(Builder $q) use ($request){
+            if ($request->keyword) {
+                if (strpos($request->keyword, '_') !== false) {
+                    $arrayParam['keyword'] = str_replace("_", "#_", $request->keyword);
+                }
+                if (strpos($request->keyword, '%') !== false) {
+                    $arrayParam['keyword'] = str_replace("%", "#%", $request->keyword);
+                }
+                $q->where('description', 'like', "%{$request->keyword}%");
+                $q->whereRaw("ESCAPE '#'");
             }
 
-            $timeline_cache_public_query->whereHas('timeline', function ($q) {
-                $q->where('description', 'like', "%{$keyword}%");
-                $q->whereRaw("ESCAPE '#' ");
+            $q->where('is_follow', 0); // フォロー分は後でUNIONするのでこっちはフォローなし
+            $q->where('public_scope', 1); // 1は全体公開
+
+            $q->whereHas('timeline', function ($q) {
+                $q->where('is_draft', 0);
+                $q->where('deleted_flg', 0);
+                $q->where('exam_status', 1);
             });
-        }
+
+            if ($request->is_recommend) $q->where('is_recommend', 1);
+            if ($request->is_fullscreen_video) $q->where('is_fullscreen_video', 1);
+        });
     }
 
     private function member_query(Builder $query, Request $request): Builder
