@@ -5,7 +5,18 @@ docker-compose up -d --build
 
 docker-compose run composer install
 
-docker-compose run app sh
+docker-compose exec mysql bash
+
+mysql -u root -p
+(上記入力後にpasswordと入力してmysqlにログイン)
+
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+
+exit
+
+exit
+
+docker-compose exec app bash
 
 cp -p .env.example .env
 

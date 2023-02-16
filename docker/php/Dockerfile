@@ -1,30 +1,14 @@
-FROM php:7.3.5-fpm-alpine
+FROM php:7.3-fpm
+COPY php.ini /usr/local/etc/php/
 
-# tinker(psysh)
-ARG PSYSH_DIR=/usr/local/share/psysh
-ARG PHP_MANUAL_URL=http://psysh.org/manual/ja/php_manual.sqlite
+RUN apt-get update \
+    && apt-get install -y zlib1g-dev libzip-dev mariadb-client \
+    && apt-get install -y wget git unzip libpq-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
+    && docker-php-ext-install zip pdo_mysql
 
-# timezone
-ARG TZ=Asia/Tokyo
+#Composer install
+COPY --from=composer:1.8.6 /usr/bin/composer /usr/bin/composer
 
-RUN set -eux && \
-  apk update && \
-  apk add --update --no-cache --virtual=.build-dependencies \
-  autoconf \
-  gcc \
-  g++ \
-  make \
-  tzdata && \
-  apk add --update --no-cache \
-  icu-dev \
-  libzip-dev && \
-  cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
-  echo ${TZ} > /etc/timezone && \
-  pecl install xdebug && \
-  apk del .build-dependencies && \
-  docker-php-ext-install intl pdo_mysql mbstring zip bcmath && \
-  docker-php-ext-enable xdebug && \
-  mkdir $PSYSH_DIR && wget $PHP_MANUAL_URL -P $PSYSH_DIR
+ENV COMPOSER_ALLOW_SUPERUSER 1
 
-# Config
-COPY php.ini /usr/local/etc/php
+ENV COMPOSER_HOME /composer
