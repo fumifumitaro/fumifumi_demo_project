@@ -28,9 +28,10 @@ Route::group([
     Route::get('{article}')->name('show')->uses('ShowController'); // FIXME: Authミドルウェアグループの上に置きたいけど何故か認識されない
 });
 
+/*uses('localhost:8883/{home}','LoginController@showLoginForm')を追加 */
 Route::namespace('Auth')
     ->group(function () {
-        Route::get('/login')->name('login')->uses('LoginController@showLoginForm');
+        Route::get('/login')->name('login')->uses('LoginController@showLoginForm')->uses('localhost:8883/{home}','LoginController@showLoginForm'); 
         Route::post('/login')->name('login')->uses('LoginController@login');
 
         Route::get('/logout')->name('logout')->uses('LoginController@logout');
