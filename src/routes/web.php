@@ -31,7 +31,7 @@ Route::group([
 /*uses('localhost:8883/{home}','LoginController@showLoginForm')を追加 */
 Route::namespace('Auth')
     ->group(function () {
-        Route::get('/login')->name('login')->uses('LoginController@showLoginForm')->name('home')->uses('LoginController@showLoginForm'); 
+        Route::get('/login')->name('login')->uses('LoginController@showLoginForm')->name('home')->uses('/{home}','LoginController@showLoginForm'); 
         Route::post('/login')->name('login')->uses('LoginController@login');
 
         Route::get('/logout')->name('logout')->uses('LoginController@logout');
