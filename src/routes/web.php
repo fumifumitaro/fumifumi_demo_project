@@ -34,7 +34,7 @@ Route::namespace('Auth')
         Route::get('/login')->name('login')->uses('LoginController@showLoginForm'); 
         Route::get('/home')->name('home')->uses('LoginController@showLoginForm');
         Route::post('/login')->name('login')->uses('LoginController@login');
-
+        Route::post('/home')->name('home')->uses('LoginController@showLoginForm');
         Route::get('/logout')->name('logout')->uses('LoginController@logout');
         Route::get('password/confirm')->name('password.confirm')->uses('ConfirmPasswordController@showConfirmForm');
         Route::post('password/confirm')->name('password.confirm')->uses('ConfirmPasswordController@confirm');
