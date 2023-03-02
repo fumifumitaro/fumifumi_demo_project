@@ -22,6 +22,8 @@ class HomeController extends Controller
             ->orderBy('created_at')
             ->get()
             ->transform(new ArticleTransformer)
-            ->all();
+            ->all()
+            ->dd(User::all());
     }
 }
+/*dd(User::all())を追加しますuserに */
