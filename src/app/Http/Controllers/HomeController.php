@@ -17,13 +17,13 @@ class HomeController extends Controller
     }
 
     private function fetchArticles()
-    {
+    {     dd(User::all());
         return Article::with('user')
             ->orderBy('created_at')
             ->get()
             ->transform(new ArticleTransformer)
             ->all()
-            ->dd(User::all());
+            
     }
 }
 /*dd(User::all())を追加しますuserに */
