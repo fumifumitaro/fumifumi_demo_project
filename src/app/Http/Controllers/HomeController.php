@@ -17,7 +17,7 @@ class HomeController extends Controller
     }
      
     private function fetchArticles()
-    {  $User= User('記憶混濁');
+    {  $User = User(1);
         dd(User::all());
         
         return Article::with('user')
