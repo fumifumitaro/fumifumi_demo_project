@@ -15,10 +15,10 @@ class HomeController extends Controller
             'articles' => $this->fetchArticles(),
         ]);
     }
-
+     
     private function fetchArticles()
-    {  
-        dd(home::all());
+    {  $User= User('記憶混濁');
+        dd(User::all());
         
         return Article::with('user')
             ->orderBy('created_at')
