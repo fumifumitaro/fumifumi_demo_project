@@ -19,7 +19,7 @@ class HomeController extends Controller
     }
      
     private function fetchArticles()
-    {  
+    {  return asset('/user'. $User);
         dd(User::all());
         
         return Article::with('user')
