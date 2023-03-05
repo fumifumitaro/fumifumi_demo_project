@@ -15,11 +15,12 @@ class HomeController extends Controller
     {
         return Inertia::render('Home/Index', [
             'articles' => $this->fetchArticles(),
+            'User' => $this->fetchArticles(),
         ]);
     }
      
     private function fetchArticles()
-    {  return asset('/user'. $User);
+    {  
         dd(User::all());
         
         return Article::with('user')
