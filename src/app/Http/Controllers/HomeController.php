@@ -15,18 +15,14 @@ class HomeController extends Controller
     {
         return Inertia::render('Home/Index', [
             'articles' => $this->fetchArticles(),
-            'user' => $this->fetchArticles(),
+           
         ]);
     }
      
     private function fetchArticles()
     {  
         dd(User::all());
-        return User::with('user')
-        ->orderBy('created_at')
-        ->get()
-        ->transform(new ArticleTransformer)
-        ->all();
+
 
         return Article::with('user')
             ->orderBy('created_at')
