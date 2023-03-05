@@ -7,7 +7,7 @@ use App\Transformer\ArticleTransformer;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-$User = User(1);
+
 
 class HomeController extends Controller
 {
