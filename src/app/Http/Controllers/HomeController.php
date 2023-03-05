@@ -18,7 +18,7 @@ class HomeController extends Controller
 
     private function fetchArticles()
     {  
-        dd(article::all());
+        dd(articlE::all());
         
         return Article::with('user')
             ->orderBy('created_at')
