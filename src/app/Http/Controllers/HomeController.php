@@ -7,6 +7,8 @@ use App\Transformer\ArticleTransformer;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
+$User = User(1);
+
 class HomeController extends Controller
 {
     public function __invoke()
@@ -17,7 +19,7 @@ class HomeController extends Controller
     }
      
     private function fetchArticles()
-    {  $User = User(1);
+    {  
         dd(User::all());
         
         return Article::with('user')
