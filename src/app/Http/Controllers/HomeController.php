@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Transformer\user; //user追加で完了。
+use Illuminate\Http\user; //user追加で完了。
 use App\Models\Article;
 use App\Transformer\ArticleTransformer;
 use Illuminate\Http\Request;
