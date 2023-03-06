@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+//useはnamespaceの関数呼び出せる
 use App\Models\user; //user追加で完了。
 use App\Models\Article;
 use App\Transformer\ArticleTransformer;
