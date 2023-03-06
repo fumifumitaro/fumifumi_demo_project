@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\user;
 use App\Models\Article;
 use App\Transformer\ArticleTransformer;
 use Illuminate\Http\Request;
