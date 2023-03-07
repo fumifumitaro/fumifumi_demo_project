@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-//useはnamespaceの関数呼び出せる
-use App\Models\user; //user追加で完了。
+/*useはnamespaceの関数呼び出せる
+use フォルダー内の相対パスで指定*/
+use App\Models\user; //user追加で完了。 
 use App\Models\Article;
 use App\Transformer\ArticleTransformer;
 use Illuminate\Http\Request;
