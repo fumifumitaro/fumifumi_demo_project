@@ -23,7 +23,7 @@ class HomeController extends Controller
      
     private function fetchArticles()
     {  
-        dd(User::all());
+        //dd(User::all());
 
 
         return Article::with('user')
