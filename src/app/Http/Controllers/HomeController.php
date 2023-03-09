@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 /*useはnamespaceの関数呼び出せる
 use フォルダー内のパスで指定*/
-use App\Models\user; //user追加で完了。 
+//use App\Models\user; //user追加で完了。 
 use App\Models\Article;
 use App\Transformer\ArticleTransformer;
 use Illuminate\Http\Request;
