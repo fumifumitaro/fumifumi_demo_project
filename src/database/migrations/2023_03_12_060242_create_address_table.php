@@ -14,7 +14,6 @@ class CreateAddressTable extends Migration
     public function up()
     {
         Schema::create('address', function (Blueprint $table) {
-            $table->bigIncrements('id');
             $table->string('phone');
             $table->string('address');
             $table->softDeletes();
