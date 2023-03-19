@@ -13,16 +13,16 @@ public function index() {
     return <<<EOF
     <html>
     <head>
-    <title>Adress index</title>
-    <style>
-    body {font-size: 16px; color: #999; }
-    </style>
+      <title>Adress index</title>
+      <style>
+        body {font-size: 16px; color: #999; }
+      </style>
     </head>
     <body>
         <h1>Adress</h1>
     </body>
     </html>
     EOF;
-        
+
 }
 }
