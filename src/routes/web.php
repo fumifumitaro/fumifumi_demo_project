@@ -28,6 +28,17 @@ Route::group([
     Route::get('{article}')->name('show')->uses('ShowController'); // FIXME: Authミドルウェアグループの上に置きたいけど何故か認識されない
 });
 
+Route::prefix('my_page')
+    ->as('my_page.')
+    ->namespace('MyPage')
+    ->group(function(){
+        Route::prefix('user')
+            ->as('user.')
+            ->group(function () {
+                Route::get('edit')->name('edit')->uses('UserController@edit');
+            });
+    });
+
 Route::namespace('Auth')
     ->group(function () {
         Route::get('/login')->name('login')->uses('LoginController@showLoginForm')->name('home');
