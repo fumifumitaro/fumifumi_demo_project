@@ -36,6 +36,7 @@ Route::prefix('my_page')
             ->as('user.')
             ->group(function () {
                 Route::get('edit')->name('edit')->uses('UserController@edit');
+                Route::post('edit')->name('update')->uses('UserController@update');
             });
     });
 
