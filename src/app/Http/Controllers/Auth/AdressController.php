@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;//??これ何
-use App\Providers\RouteServiceProvider;//??これ何
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class AdressControl extends Controller
+// これがLaravelのベースのコントローラー
+
+class AdressController extends Controller
 {
     //テスト
-public function index() {
+    public function showAddressForm()
+    {
 
-    return <<<EOF
+        return <<<EOF
     <html>
     <head>
       <title>Adress index</title>
@@ -23,7 +24,6 @@ public function index() {
         <h1>Adress</h1>
     </body>
     </html>
-    EOF;
-
-}
+EOF;
+    }
 }

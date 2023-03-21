@@ -31,10 +31,10 @@ Route::group([
 /*uses('localhost:8883/{home}','LoginController@showLoginForm')を追加 */
 Route::namespace('Auth')
     ->group(function () {
-        Route::get('/login')->name('login')->uses('LoginController@showLoginForm'); 
+        Route::get('/login')->name('login')->uses('LoginController@showLoginForm');
         Route::get('/home')->name('home')->uses('LoginController@showLoginForm');
         Route::post('/login')->name('login')->uses('LoginController@login');
-        
+
         Route::get('/logout')->name('logout')->uses('LoginController@logout');
         Route::get('password/confirm')->name('password.confirm')->uses('ConfirmPasswordController@showConfirmForm');
         Route::post('password/confirm')->name('password.confirm')->uses('ConfirmPasswordController@confirm');
@@ -44,7 +44,7 @@ Route::namespace('Auth')
         Route::get('password/reset/{token}')->name('password.reset')->uses('ResetPasswordController@showResetForm');
         Route::get('register')->name('register')->uses('RegisterController@showRegistrationForm');
         Route::post('register')->name('register')->uses('RegisterController@register');
-        Route::get('address')->name('address')->uses('AdressController@showAdressForm');//addressRoute
+        Route::get('address')->name('address')->uses('AdressController@showAddressForm');//addressRoute
         Route::post('address')->name('address')->uses('AdressController@address');//addressRoute
 
         Route::prefix('email')
