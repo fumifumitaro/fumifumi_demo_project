@@ -42,12 +42,8 @@ Route::prefix('my_page')
 
 Route::namespace('Auth')
     ->group(function () {
-<<<<<<< HEAD
         Route::get('/login')->name('login')->uses('LoginController@showLoginForm');
         Route::get('/home')->name('home')->uses('LoginCogitntroller@showLoginForm');
-=======
-        Route::get('/login')->name('login')->uses('LoginController@showLoginForm')->name('home');
->>>>>>> 3a67378e83eb556194c52e147449ca3a7b154b0a
         Route::post('/login')->name('login')->uses('LoginController@login');
 
         Route::get('/logout')->name('logout')->uses('LoginController@logout');
