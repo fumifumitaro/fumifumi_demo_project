@@ -42,8 +42,7 @@ Route::prefix('my_page')
 
 Route::namespace('Auth')
     ->group(function () {
-        Route::get('/login')->name('login')->uses('LoginController@showLoginForm');
-        Route::get('/home')->name('home')->uses('LoginCogitntroller@showLoginForm');
+        Route::get('/login')->name('login')->uses('LoginController@showLoginForm')->name('home');
         Route::post('/login')->name('login')->uses('LoginController@login');
 
         Route::get('/logout')->name('logout')->uses('LoginController@logout');
