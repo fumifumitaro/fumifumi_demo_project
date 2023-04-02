@@ -14,7 +14,7 @@ class CreateAddressTable extends Migration
     public function up()
     {
         Schema::create('address', function (Blueprint $table) {
-            $table->string('phone');
+            $table->string('phone');//string テキスト
             $table->string('address');
             $table->softDeletes();
             $table->timestamps();
@@ -28,6 +28,6 @@ class CreateAddressTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address');
+        Schema::dropIfExists('address');//アドレステーブルあれば削除
     }
 }
