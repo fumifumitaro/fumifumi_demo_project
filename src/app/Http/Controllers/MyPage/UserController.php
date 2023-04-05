@@ -28,7 +28,7 @@ class UserController extends Controller
 
        User::update([
             'name' => $request->name,
-            'address' => $request->address
+            'address' => $request->address,
        ])->save();//save()追加
 
         // TODO: 返却する値を調整する
