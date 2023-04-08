@@ -69,7 +69,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:32', 'unique:users'],
             'password' => ['required', 'string', 'min:4', 'confirmed'],
             'phone' => ['required', 'string', 'max:11', ],//電話
-            'address' => ['required', 'string', 'max:255', ],//住所
+            'address' => ['required', 'string', 'max:255'],//住所
         ],
             [],
             [
