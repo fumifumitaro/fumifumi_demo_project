@@ -13,11 +13,9 @@ class CreateAddressTable extends Migration
      */
     public function up()
     {
-        Schema::create('address', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->string('phone');//string テキスト
             $table->string('address');
-            $table->softDeletes();
-            $table->timestamps();
         });
     }
 
