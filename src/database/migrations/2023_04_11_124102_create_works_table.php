@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAddressTable extends Migration
+class CreateWorksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateAddressTable extends Migration
      */
     public function up()
     {
-        Schema::table('address', function (Blueprint $table) {
-            $table->string('phone');//string テキスト
-            $table->string('address');
-            $table->softDeletes();
+        Schema::create('works', function (Blueprint $table) {
+            $table->string('works'); //勤務先
+            $table->bigIncrements('id');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateAddressTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address');//アドレステーブルあれば削除
+        Schema::dropIfExists('works');
     }
 }
