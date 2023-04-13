@@ -39,7 +39,17 @@ Route::prefix('my_page')
                 Route::post('edit')->name('update')->uses('UserController@update');
             });
     });
-//Route::prefix()    works予定
+Route::prefix('works')  //  works予定
+    ->as('works')
+    ->namespace('Works')
+    ->group(function(){
+        Route::prefix('user')
+            ->as('user.')
+            ->group(function(){
+                Route::get('edit')->name('edit')->uses('UserController@edit');
+                Route::post('edit')->name('update')->uses('UserController@update');
+            });
+    });
 
 Route::namespace('Auth')
     ->group(function () {
