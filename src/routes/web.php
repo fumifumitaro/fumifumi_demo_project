@@ -46,8 +46,8 @@ Route::prefix('works')  //  works予定
         Route::prefix('user')
             ->as('user.')
             ->group(function(){
-                Route::get('edit')->name('edit')->uses('UserController@edit');
-                Route::post('edit')->name('update')->uses('UserController@update');
+                Route::get('edit')->name('edit')->uses('WorksController@edit');
+                Route::post('edit')->name('update')->uses('WorksController@update');
             });
     });
 
