@@ -39,6 +39,7 @@ Route::prefix('my_page')
                 Route::post('edit')->name('update')->uses('UserController@update');
             });
     });
+//Route::prefix()    works予定
 
 Route::namespace('Auth')
     ->group(function () {
@@ -56,6 +57,8 @@ Route::namespace('Auth')
         Route::post('register')->name('register')->uses('RegisterController@register');
         Route::get('address')->name('address')->uses('AdressController@showAddressForm');//addressRoute @showAdress->@showAddressの違い
         Route::post('address')->name('address')->uses('AdressController@address');//addressRoute
+        Route::get('works')->name('works')->uses('WorksController@showWorksForm');// works追加予定
+        Route::post('works')->name('works')->uses('WorksController@works');
 
         Route::prefix('email')
             ->as('verification.')
