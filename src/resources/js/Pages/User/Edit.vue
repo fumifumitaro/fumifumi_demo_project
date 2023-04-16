@@ -70,11 +70,10 @@ export default {
 
   methods: {
     submit: function () {
-        console.log('aiueo')
       axios
         .post(this.$route("my_page.user.update"), {
           name: this.name,
-          email: this.address
+          address: this.address
         })
         .then(
           function (res) {

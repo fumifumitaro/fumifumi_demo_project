@@ -4,7 +4,6 @@ namespace App\Http\Controllers\MyPage;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -24,12 +23,12 @@ class UserController extends Controller
     {
         logger($request->all());
 
-    
+        $user = Auth::user();
 
-       User::update([
+        $user::update([
             'name' => $request->name,
             'address' => $request->address,
-       ])->save();//save()追加
+        ]);
 
         // TODO: 返却する値を調整する
         return [];
