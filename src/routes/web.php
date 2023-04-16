@@ -39,9 +39,9 @@ Route::prefix('my_page')
                 Route::post('edit')->name('update')->uses('UserController@update');
             });
     });
-Route::prefix('works')  //  works予定
-    ->as('works')
-    ->namespace('Works')
+Route::prefix('works')  //  prefixはURIの最初の単語をグループ化 例get('works/edit')が('edit')になり前の単語を省略して書ける
+    ->as('works') //ルーティングに別名をつけれるプロパティ
+    ->namespace('Works') //usesの最初の単語をグループ化 例uses('Works/WorksController@edit')がuses('WorksController@edit')になり前の単語を省略して書ける
     ->group(function(){
         Route::prefix('user')
             ->as('user.')
