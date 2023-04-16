@@ -25,7 +25,8 @@ class UserController extends Controller
 
         $user = Auth::user();
 
-        $user::update([
+        // modelを調整しないと動かないよ
+        $user->update([
             'name' => $request->name,
             'address' => $request->address,
         ]);

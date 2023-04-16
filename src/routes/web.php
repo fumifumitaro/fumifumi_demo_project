@@ -54,8 +54,6 @@ Route::namespace('Auth')
         Route::get('password/reset/{token}')->name('password.reset')->uses('ResetPasswordController@showResetForm');
         Route::get('register')->name('register')->uses('RegisterController@showRegistrationForm');
         Route::post('register')->name('register')->uses('RegisterController@register');
-        Route::get('address')->name('address')->uses('AdressController@showAddressForm');//addressRoute @showAdress->@showAddressの違い
-        Route::post('address')->name('address')->uses('AdressController@address');//addressRoute
 
         Route::prefix('email')
             ->as('verification.')
