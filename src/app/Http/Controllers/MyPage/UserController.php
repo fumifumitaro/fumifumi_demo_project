@@ -11,8 +11,9 @@ use Inertia\Inertia;
 
 class UserController extends Controller
 {
-    public function edit()
+    public function edit(Request $request)
     {
+        logger($request->all());  
         $user = Auth::user();
 
         return Inertia::render('User/Edit', [
@@ -23,13 +24,13 @@ class UserController extends Controller
     public function update(Request $request) //TODO: バリデーションを加える。
     {
         logger($request->all());
-
+        $user = Auth::user();
     
 
-       User::update([
+       $user->update([
             'name' => $request->name,
-            'address' => $request->address,
-       ])->save();//save()追加
+            'address' => $request->email,
+       ]);
 
         // TODO: 返却する値を調整する
         return [];

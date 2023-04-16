@@ -50,7 +50,7 @@ export default {
   },
 
 　props: {
-    user: {
+    user: { //editの 'user' =>$user処理
       type: Object,
       required: true
     }
