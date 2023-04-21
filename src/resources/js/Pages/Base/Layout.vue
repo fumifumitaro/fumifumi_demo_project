@@ -16,6 +16,9 @@
           <a :href="$route('my_page.user.edit')" v-show="auth">
             MyPage
           </a>
+          <a :href="$route('')" v-show="auth">
+            Works
+          </a>
           <a :href="$route('logout')" v-show="auth">
             Logout
           </a>
