@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Works;
 
 use App\Http\Controllers\Controller;
 
+use App\Hello;
+
 use App\Models\User; //ユーザーモデルクラス
 use Auth; //ユーザー認証に必要
 use Illuminate\Http\Request; //requestデータの参照
@@ -11,6 +13,13 @@ use Inertia\Inertia; //Inertia.jsにてユーザー登録画面やログイン�
 
 class UserController extends Controller
 {
+    public function hello()
+    {
+        $hi = new Hello();
+        $hello = $hi->hello();
+        return $hello;
+    }
+
     public function edit()
     {
     $user = Auth::user(); //ユーザー認証　ログインしていればログインしているユーザーのモデルクラスを返す。ログインしていなければnull。

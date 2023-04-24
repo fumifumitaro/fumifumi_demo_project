@@ -4,6 +4,6 @@ namespace App;
 
 class Hello {
     public function hello() {
-        return 'おはようございます。';
+        return "<p>おはようございます</p>";
     }       
 }
