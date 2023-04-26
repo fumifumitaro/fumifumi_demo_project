@@ -26,6 +26,6 @@ class SampleClass
     {
         if(blank($this->message)) return '';
 
-        return $this->to . 'さん' . $this->message();
+        return $this->to . 'さん' . $this->message;
     }
 }
