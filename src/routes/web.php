@@ -64,3 +64,9 @@ Route::namespace('Auth')
                 Route::get('verified')->name('verified')->uses('VerificationController@verified');
             });
     });
+
+Route::prefix('sample')
+    ->as('sample.')
+    ->group(function () {
+        Route::get('class')->name('class')->uses('SampleController@class');
+    });
