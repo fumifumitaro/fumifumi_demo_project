@@ -49,7 +49,7 @@ export default {
     Layout,
   },
 
-　props: {
+  props: {
     user: {
       type: Object,
       required: true
@@ -108,6 +108,7 @@ export default {
             duration: 10000,
             showClose: false,
         });
+        setTimeout(this.toTop, 2000);
     },
     errorNotify: function () {
       this.$notify.error({
@@ -117,6 +118,9 @@ export default {
         duration: 10000,
         showClose: false,
       });
+    },
+    toTop: function () {
+      this.$inertia.visit(this.$route("home"));
     },
   },
 };
