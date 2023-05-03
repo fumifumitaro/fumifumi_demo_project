@@ -8,9 +8,19 @@ class SampleController extends Controller
 {
     public function class()
     {
-        $sample = new SampleClass();
-
-        dd($sample->to());
-        // dd($sample->message());
+        $sample = new ReverseController("田中");
+        $sample->setMessage('ありがとう');
+       
+        //dd($sample->to($name));
+        dd($sample->message());
     }
+
 }
+
+class ReverseController extends SampleClass //オーバーライド
+{
+    public function message()
+    {
+      return $this->message . $this->to . 'さん';
+    }
+} 

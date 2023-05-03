@@ -69,4 +69,5 @@ Route::prefix('sample')
     ->as('sample.')
     ->group(function () {
         Route::get('class')->name('class')->uses('SampleController@class');
+        Route::get('reverseClass')->name('reverseClass')->uses('SampleController@reverseClass');
     });

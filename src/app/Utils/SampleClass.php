@@ -7,7 +7,7 @@ class SampleClass
     protected $to;
     protected $message;
 
-    public function __construct($to = 'サンプル')
+    public function __construct($to = 'サンプル')//ここの引数をnew SampleClass("田中");で変える。
     {
         $this->to = $to;
     }
@@ -24,7 +24,7 @@ class SampleClass
 
     public function message()
     {
-        if(blank($this->message)) return '';
+        if(blank($this->message)) return '';//messageが空欄なら''を返す
 
         return $this->to . 'さん' . $this->message;
     }
