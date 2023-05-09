@@ -13,7 +13,7 @@
             Register
           </a>
           <a v-show="auth"> ようこそ{{ $page.auth.user.name }}さん </a>
-          <a :href="$route('my_page.user.edit')" v-show="auth">
+          <a :href="$route('my_page.user.profile')" v-show="auth">
             MyPage
           </a>
           <a :href="$route('logout')" v-show="auth">
