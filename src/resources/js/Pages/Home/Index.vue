@@ -18,12 +18,19 @@
         </div>
         <el-table
           :data="tableData"
-          style="width: 100%; padding: 1.5em;"
+          style="width: 100%; padding: 1.5em; z-index: 1;"
           @row-click="goToArticle"
+
         >
           <el-table-column prop="username" label="Author" width="180" />
           <el-table-column prop="title" label="Title" />
           <el-table-column prop="date" label="Date" width="180" />
+          <el-table-column label="Bookmark">
+            <Bookmark @click="stopPropagation"/>
+          </el-table-column>
+          <el-table-column label="Favorite">
+            <Favorite @click="stopPropagation"/>
+          </el-table-column>
         </el-table>
       </div>
     </div>
@@ -32,10 +39,14 @@
 
 <script>
 import Layout from "@/Pages/Base/Layout";
+import Bookmark from "@/Pages/Components/Bookmark.vue";
+import Favorite from "@/Pages/Components/Favorite.vue";
 
 export default {
   components: {
     Layout,
+    Bookmark,
+    Favorite,
   },
   props: {
     articles: {
@@ -55,6 +66,9 @@ export default {
     },
     goToArticle(article) {
       this.$inertia.visit(this.$route("article.show", article.id));
+    },
+    stopPropagation (event) {
+      event.stopPropagation();
     },
   },
 };

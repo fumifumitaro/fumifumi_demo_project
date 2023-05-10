@@ -7,7 +7,11 @@
             <h2>{{ article.title }}</h2>
           </div>
         </div>
-        <div class="article-content" v-html="article.content" />
+        <div :style="{ display: 'flex'}">
+          <div class="article-content" v-html="article.content" />
+          <Bookmark />
+          <Favorite />
+        </div>
       </div>
     </div>
   </layout>
@@ -15,9 +19,14 @@
 
 <script>
 import Layout from "@/Pages/Base/Layout";
+import Bookmark from "@/Pages/Components/Bookmark.vue";
+import Favorite from "@/Pages/Components/Favorite.vue";
+
 export default {
   components: {
     Layout,
+    Bookmark,
+    Favorite,
   },
   props: {
     article: {
