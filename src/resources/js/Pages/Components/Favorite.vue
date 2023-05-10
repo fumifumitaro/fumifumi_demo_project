@@ -14,7 +14,7 @@ export default {
     },
     data(){
         return{
-            Boolean_fv: false,
+            boolean_fv: false,
             color_fv: 'black',
         }
     },

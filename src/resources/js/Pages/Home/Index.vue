@@ -26,10 +26,10 @@
           <el-table-column prop="title" label="Title" />
           <el-table-column prop="date" label="Date" width="180" />
           <el-table-column label="Bookmark">
-            <Bookmark @click="stopPropagation"/>
+            <Bookmark  @click.native.stop/>
           </el-table-column>
           <el-table-column label="Favorite">
-            <Favorite @click="stopPropagation"/>
+            <Favorite @click.native.stop/>
           </el-table-column>
         </el-table>
       </div>
@@ -66,9 +66,6 @@ export default {
     },
     goToArticle(article) {
       this.$inertia.visit(this.$route("article.show", article.id));
-    },
-    stopPropagation (event) {
-      event.stopPropagation();
     },
   },
 };
