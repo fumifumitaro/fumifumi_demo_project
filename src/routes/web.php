@@ -37,8 +37,10 @@ Route::prefix('my_page')
             ->group(function () {
                 Route::get('edit')->name('edit')->uses('UserController@edit');
                 Route::post('edit')->name('update')->uses('UserController@update');
+                Route::get('profile')->name('profile')->uses('ProfileController@profile');
             });
     });
+
 
 Route::namespace('Auth')
     ->group(function () {
