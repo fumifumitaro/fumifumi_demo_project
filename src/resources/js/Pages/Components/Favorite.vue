@@ -3,8 +3,7 @@
         label="favorite"
         :style="{ color: color_fv, border: 0, backgroundColor: 'white', width: 'max-content' }"
         @click="favorite"
-    >♡
-    </button>
+    >♡</button>
 </template>
 
 <script>
