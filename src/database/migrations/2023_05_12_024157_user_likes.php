@@ -19,7 +19,7 @@ class UserLikes extends Migration
 
             $table->bigInteger('user_id')->unsigned()->index();
             $table->bigInteger('article_id')->unsigned()->index();
-            $table->foreign('user_id')->on('articles')->references('id')->onDelete('cascade');
+            $table->foreign('user_id')->on('users')->references('id')->onDelete('cascade');
             $table->foreign('article_id')->on('articles')->references('id')->onDelete('cascade');
 
             $table->timestamps();
