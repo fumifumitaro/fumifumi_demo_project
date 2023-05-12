@@ -14,13 +14,16 @@ class UserBookmarks extends Migration
     public function up()
     {
         Schema::create('user_bookmarks', function (Blueprint $table) {
-            $table->boolean('bookmarks');
+            $table->id('id');
+            $table->boolean('bookmark');
 
-            $table->bigInteger('articles_id')->unsigned()->index();
-            $table->foreign('articles_id')->on('articles')->references('id')->onDelete('cascade');
+            $table->bigInteger('user_id')->unsigned()->index();
+            $table->bigInteger('article_id')->unsigned()->index();
+            $table->foreign('user_id')->on('articles')->references('id')->onDelete('cascade');
+            $table->foreign('article_id')->on('articles')->references('id')->onDelete('cascade');
 
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -31,6 +34,6 @@ class UserBookmarks extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('user_bookmarks');
     }
 }
