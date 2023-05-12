@@ -13,7 +13,15 @@ class UserLikes extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('user_likes', function (Blueprint $table) {
+            $table->boolean('likes');
+
+            $table->bigInteger('articles_id')->unsigned()->index();
+            $table->foreign('articles_id')->on('articles')->references('id')->onDelete('cascade');
+
+            $table->softDeletes();
+            $table->timestamps();
+        });
     }
 
     /**
