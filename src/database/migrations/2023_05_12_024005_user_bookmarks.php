@@ -14,7 +14,7 @@ class UserBookmarks extends Migration
     public function up()
     {
         Schema::create('user_bookmarks', function (Blueprint $table) {
-            $table->id('id');
+            $table->bigIncrements('id');
             $table->boolean('bookmark');
 
             $table->bigInteger('user_id')->unsigned()->index();

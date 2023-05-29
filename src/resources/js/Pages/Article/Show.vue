@@ -9,7 +9,7 @@
         </div>
         <div :style="{ display: 'flex'}">
           <div class="article-content" v-html="article.content" />
-          <Bookmark />
+          <Bookmark bookmark="user_bookmark" :article="article.id"/>
           <Favorite />
         </div>
       </div>
@@ -23,6 +23,11 @@ import Bookmark from "@/Pages/Components/Bookmark.vue";
 import Favorite from "@/Pages/Components/Favorite.vue";
 
 export default {
+  data(){
+    return{
+      user_bookmark: this.bookmark,
+    }
+  },
   components: {
     Layout,
     Bookmark,
@@ -34,6 +39,9 @@ export default {
       required: true,
       default: null,
     },
+    bookmark: {
+      type: Boolean,
+    }
   },
 };
 </script>

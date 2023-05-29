@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\UserBookmark;
 use App\Transformer\ArticleTransformer;
 use Inertia\Inertia;
 
@@ -10,6 +11,7 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
+        logger('getブックマークAPIが動作しています');
         return Inertia::render('Home/Index', [
             'articles' => $this->fetchArticles(),
         ]);

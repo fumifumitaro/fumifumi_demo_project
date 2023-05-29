@@ -3,7 +3,7 @@
 
 namespace App\Transformer;
 
-
+use App\Models\UserBookmark;
 use App\Models\Article;
 use Parsedown;
 
