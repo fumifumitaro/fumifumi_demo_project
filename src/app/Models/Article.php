@@ -22,4 +22,8 @@ class Article extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function user_bookmarks(){
+        return $this->hasOne(UserBookmark::class);
+    }
 }
