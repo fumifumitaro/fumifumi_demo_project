@@ -11,7 +11,10 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        logger('getブックマークAPIが動作しています');
+        // logger('getブックマークAPIが動作しています Home');
+        // dd(Inertia::render('Home/Index', [
+        //     'articles' => $this->fetchArticles(),
+        // ]));
         return Inertia::render('Home/Index', [
             'articles' => $this->fetchArticles(),
         ]);
@@ -19,7 +22,7 @@ class HomeController extends Controller
 
     private function fetchArticles()
     {
-        return Article::with('user')
+        return Article::with('user', 'user_bookmarks')
             ->orderBy('created_at')
             ->get()
             ->transform(new ArticleTransformer)
