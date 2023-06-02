@@ -3,7 +3,7 @@
 
 namespace App\Transformer;
 
-
+use App\Models\UserBookmark;
 use App\Models\Article;
 use Parsedown;
 
@@ -22,6 +22,7 @@ class ArticleTransformer
             'content' => $parse->text($article->content),
 
             'date' => $article->created_at->format('Y/m/d h:i'),
+            'bookmark' => $article->user_bookmark ? $article->user_bookmark->bookmark : 0,
         ];
 
         return $data;

@@ -9,7 +9,7 @@
         </div>
         <div :style="{ display: 'flex'}">
           <div class="article-content" v-html="article.content" />
-          <Bookmark />
+          <Bookmark bookmark="user_bookmark" :article="article.id" :bookmark="article.bookmark"/>
           <Favorite />
         </div>
       </div>

@@ -12,6 +12,7 @@
 */
 
 Route::get('/')->name('home')->uses('HomeController');
+Route::post('/')->name('bookmark')->uses('BookmarkController@updateOrCreate');
 
 Route::post('/media/upload')->name('media.upload')->uses('MediaController@store');
 
@@ -26,6 +27,7 @@ Route::group([
             Route::post('store')->name('store')->uses('CreateController@store');
         });
     Route::get('{article}')->name('show')->uses('ShowController'); // FIXME: Authミドルウェアグループの上に置きたいけど何故か認識されない
+    Route::post('{article}')->name('bookmark')->uses('BookmarkController@updateOrCreate');
 });
 
 Route::prefix('my_page')
@@ -46,7 +48,7 @@ Route::namespace('Auth')
     ->group(function () {
         Route::get('/login')->name('login')->uses('LoginController@showLoginForm')->name('home');
         Route::post('/login')->name('login')->uses('LoginController@login');
-
+        
         Route::get('/logout')->name('logout')->uses('LoginController@logout');
         Route::get('password/confirm')->name('password.confirm')->uses('ConfirmPasswordController@showConfirmForm');
         Route::post('password/confirm')->name('password.confirm')->uses('ConfirmPasswordController@confirm');

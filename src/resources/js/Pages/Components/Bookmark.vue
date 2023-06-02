@@ -1,9 +1,11 @@
 <template>
-    <button
-        label="bookmark"
-        :style="{ color: color_bm, border: 0, backgroundColor: 'white', width: 'max-content' }"
-        @click="bookmark"
-    >☆</button>
+    <div>
+        <button
+            label="bookmark"
+            :style="{ color: color_bm, border: 0, backgroundColor: 'white', width: 'max-content' }"
+            @click="bookmark_function(); submit()"
+        >☆</button>
+    </div>
 </template>
 
 <script>
@@ -14,19 +16,39 @@ export default {
     },
     data(){
         return{
-            boolean_bm: false,
-            color_bm: 'black',
+            UserBookmark: this.bookmark,
+            color_bm: '',
         }
     },
+    created() {
+        console.log("created")
+            if(this.UserBookmark == 1){
+                this.color_bm = 'yellow';
+            }else if(this.UserBookmark == 0){
+                this.color_bm = 'black';
+            }
+    },
     methods: {
-        bookmark() {
-            this.bookmark_bm = !this.bookmark_bm;
-            if(this.bookmark_bm){
-                this.color_bm = 'yellow'
+        bookmark_function() {
+            if(this.UserBookmark == 0){
+                this.UserBookmark = 1;
+                this.color_bm = 'yellow';
             }else{
-                this.color_bm = 'black'
+                this.UserBookmark = 0;
+                this.color_bm = 'black';
             }
         },
-    }
+        submit: function () {
+            axios
+            .post(this.$route("bookmark"),{
+                bookmark: this.UserBookmark,
+                article: this.article
+            })
+        },
+    },
+    props: {
+        bookmark: Number,
+        article: Number,
+    },
 };
 </script>

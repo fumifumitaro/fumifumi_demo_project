@@ -26,7 +26,9 @@
           <el-table-column prop="title" label="Title" />
           <el-table-column prop="date" label="Date" width="180" />
           <el-table-column label="Bookmark">
-            <Bookmark  @click.native.stop/>
+            <template slot-scope="scope">
+              <Bookmark  @click.native.stop :article="scope.row.id" :bookmark="scope.row.bookmark" />
+            </template>
           </el-table-column>
           <el-table-column label="Favorite">
             <Favorite @click.native.stop/>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\UserBookmark;
 use App\Transformer\ArticleTransformer;
 use Inertia\Inertia;
 
@@ -17,7 +18,7 @@ class HomeController extends Controller
 
     private function fetchArticles()
     {
-        return Article::with('user')
+        return Article::with('user', 'user_bookmark')
             ->orderBy('created_at')
             ->get()
             ->transform(new ArticleTransformer)
