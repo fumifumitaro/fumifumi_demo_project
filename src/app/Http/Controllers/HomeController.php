@@ -18,7 +18,7 @@ class HomeController extends Controller
 
     private function fetchArticles()
     {
-        return Article::with('user', 'user_bookmarks')
+        return Article::with('user', 'user_bookmark')
             ->orderBy('created_at')
             ->get()
             ->transform(new ArticleTransformer)

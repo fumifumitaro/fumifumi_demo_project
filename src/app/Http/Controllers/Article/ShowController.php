@@ -15,7 +15,7 @@ class ShowController extends Controller
     {
         
         $articleTransformer = new ArticleTransformer();
-        logger('getブックマークAPIが動作しています');
+
         return Inertia::render('Article/Show', [
             'article' => $articleTransformer($article),
         ]);

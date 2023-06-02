@@ -22,9 +22,8 @@ class ArticleTransformer
             'content' => $parse->text($article->content),
 
             'date' => $article->created_at->format('Y/m/d h:i'),
-            'bookmark' => $article->user_bookmarks ? $article->user_bookmarks->bookmark : 0,
+            'bookmark' => $article->user_bookmark ? $article->user_bookmark->bookmark : 0,
         ];
-        // logger($data);
 
         return $data;
     }

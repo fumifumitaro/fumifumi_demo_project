@@ -23,7 +23,7 @@ class Article extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function user_bookmarks(){
+    public function user_bookmark(){
         return $this->hasOne(UserBookmark::class);
     }
 }

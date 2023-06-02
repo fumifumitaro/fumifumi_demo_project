@@ -14,18 +14,18 @@ class BookmarkController extends Controller
 
     public function updateOrCreate(Request $request)
     {
-        $user_id = Auth::id();
-        $article_id = $request->input('article');
-        $bookmark = $request->input('bookmark');
+        $user = Auth::id();
+        $articleId = $request->input('article');
+        $bookmarkId = $request->input('bookmark');
 
-        $bookmarkModel = UserBookmark::where('user_id', $user_id)
-                        ->where('article_id', $article_id)
+        $userBookmark = UserBookmark::where('user_id', $user)
+                        ->where('article_id', $articleId)
                         ->first();
 
-        if ($bookmarkModel) {
-            $bookmarkModel->update(['bookmark' => $bookmark]);
+        if ($userBookmark) {
+            $userBookmark->update(['bookmark' => $bookmarkId]);
         } else {
-            UserBookmark::create(['user_id' => $user_id, 'article_id' => $article_id, 'bookmark' => $bookmark]);
+            UserBookmark::create(['user_id' => $user, 'article_id' => $articleId, 'bookmark' => $bookmarkId]);
         }
         
         return response()->json(['message' => 'success']);
