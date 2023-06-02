@@ -28,8 +28,10 @@
           <el-table-column label="Bookmark">
             <Bookmark  @click.native.stop/>
           </el-table-column>
-          <el-table-column label="Favorite">
-            <Favorite @click.native.stop/>
+          <el-table-column label="Like">
+            <template slot-scope="scope">
+              <Like  @click.native.stop :article="scope.row.id" :like="scope.row.like" />
+            </template>
           </el-table-column>
         </el-table>
       </div>
@@ -40,13 +42,13 @@
 <script>
 import Layout from "@/Pages/Base/Layout";
 import Bookmark from "@/Pages/Components/Bookmark.vue";
-import Favorite from "@/Pages/Components/Favorite.vue";
+import Like from "@/Pages/Components/Like.vue";
 
 export default {
   components: {
     Layout,
     Bookmark,
-    Favorite,
+    Like,
   },
   props: {
     articles: {

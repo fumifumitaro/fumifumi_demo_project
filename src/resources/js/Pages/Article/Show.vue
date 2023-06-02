@@ -9,8 +9,8 @@
         </div>
         <div :style="{ display: 'flex'}">
           <div class="article-content" v-html="article.content" />
-          <Bookmark />
-          <Favorite />
+          <Bookmark bookmark="user_bookmark" :article="article.id" :bookmark="article.bookmark"/>
+          <Like like="user_like" :article="article.id" :like="article.like"/>
         </div>
       </div>
     </div>
@@ -20,13 +20,13 @@
 <script>
 import Layout from "@/Pages/Base/Layout";
 import Bookmark from "@/Pages/Components/Bookmark.vue";
-import Favorite from "@/Pages/Components/Favorite.vue";
+import Like from "@/Pages/Components/Like.vue";
 
 export default {
   components: {
     Layout,
     Bookmark,
-    Favorite,
+    Like,
   },
   props: {
     article: {
