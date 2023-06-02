@@ -14,7 +14,6 @@ class LikeController extends Controller
 
     public function updateOrCreate(Request $request)
     {
-        logger($request);
         $user = Auth::id();
         $articleId = $request->input('article');
         $likeId = $request->input('like');
