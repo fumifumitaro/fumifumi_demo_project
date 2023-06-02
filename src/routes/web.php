@@ -50,7 +50,7 @@ Route::namespace('Auth')
     ->group(function () {
         Route::get('/login')->name('login')->uses('LoginController@showLoginForm')->name('home');
         Route::post('/login')->name('login')->uses('LoginController@login');
-
+        
         Route::get('/logout')->name('logout')->uses('LoginController@logout');
         Route::get('password/confirm')->name('password.confirm')->uses('ConfirmPasswordController@showConfirmForm');
         Route::post('password/confirm')->name('password.confirm')->uses('ConfirmPasswordController@confirm');

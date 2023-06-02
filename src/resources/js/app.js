@@ -13,7 +13,7 @@ Vue.use(ElementUI);
 Vue.use(mavonEditor);
 
 Vue.prototype.$route = (...args) => route(...args).url();
-
+Vue.config.devtools = true;
 new Vue({
   render: (h) =>
     h(InertiaApp, {
