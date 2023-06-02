@@ -25,7 +25,7 @@
           <el-table-column prop="username" label="Author" width="180" />
           <el-table-column prop="title" label="Title" />
           <el-table-column prop="date" label="Date" width="180" />
-          <el-table-column prop="bookmark" label="Bookmark">
+          <el-table-column label="Bookmark">
             <template slot-scope="scope">
               <Bookmark  @click.native.stop :article="scope.row.id" :bookmark="scope.row.bookmark" />
             </template>

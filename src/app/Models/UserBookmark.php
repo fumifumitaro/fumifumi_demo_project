@@ -14,6 +14,10 @@ class UserBookmark extends Model
         'bookmark'
     ];
 
+    protected $attributes = [
+        'bookmark' => 'false'
+    ];
+
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',

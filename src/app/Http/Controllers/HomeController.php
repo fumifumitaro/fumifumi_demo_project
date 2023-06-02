@@ -11,10 +11,6 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        // logger('getブックマークAPIが動作しています Home');
-        // dd(Inertia::render('Home/Index', [
-        //     'articles' => $this->fetchArticles(),
-        // ]));
         return Inertia::render('Home/Index', [
             'articles' => $this->fetchArticles(),
         ]);

@@ -5,8 +5,6 @@
             :style="{ color: color_bm, border: 0, backgroundColor: 'white', width: 'max-content' }"
             @click="bookmark_function(); submit()"
         >☆</button>
-        <p>{{ this.bookmark }}</p>
-        <p>{{ this.article }}</p>
     </div>
 </template>
 
@@ -18,16 +16,25 @@ export default {
     },
     data(){
         return{
-            UserBookmark: this.user_bookmark,
-            color_bm: 'black',
+            UserBookmark: this.bookmark,
+            color_bm: '',
         }
+    },
+    created() {
+        console.log("created")
+            if(this.UserBookmark == 1){
+                this.color_bm = 'yellow';
+            }else if(this.UserBookmark == 0){
+                this.color_bm = 'black';
+            }
     },
     methods: {
         bookmark_function() {
-            this.UserBookmark = !this.UserBookmark;
-            if(this.UserBookmark){
+            if(this.UserBookmark == 0){
+                this.UserBookmark = 1;
                 this.color_bm = 'yellow';
             }else{
+                this.UserBookmark = 0;
                 this.color_bm = 'black';
             }
         },
@@ -40,7 +47,7 @@ export default {
         },
     },
     props: {
-        bookmark: Boolean,
+        bookmark: Number,
         article: Number,
     },
 };
