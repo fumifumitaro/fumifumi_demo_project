@@ -21,7 +21,6 @@ export default {
         }
     },
     created() {
-        console.log("created")
             if(this.UserLike == 1){
                 this.color = 'red';
             }else if(this.UserLike == 0){
