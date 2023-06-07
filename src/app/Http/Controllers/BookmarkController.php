@@ -22,6 +22,8 @@ class BookmarkController extends Controller
                         ->where('article_id', $articleId)
                         ->first();
 
+        logger($request); 
+
         if ($userBookmark) {
             $userBookmark->update(['bookmark' => $bookmarkId]);
         } else {

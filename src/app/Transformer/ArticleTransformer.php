@@ -26,10 +26,9 @@ class ArticleTransformer
             'content' => $parse->text($article->content),
 
             'date' => $article->created_at->format('Y/m/d h:i'),
-            'bookmark' => $article->user_bookmarks->where('user_id', Auth::id())->first(),
-            'like' => $article->user_like ? $article->user_like->like : 0,
+            'bookmark' => $article->user_bookmarks->where('user_id', Auth::id())->first() ? $article->user_bookmarks->where('user_id', Auth::id())->first()->bookmark : 0,
+            'like' => $article->user_likes->where('user_id', Auth::id())->first() ? $article->user_likes->where('user_id', Auth::id())->first()->like : 0,
         ];
-        logger($data);
 
         return $data;
     }

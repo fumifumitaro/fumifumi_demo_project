@@ -27,7 +27,7 @@ class Article extends Model
         return $this->hasMany(UserBookmark::class);
     }
 
-    public function user_like(){
-        return $this->hasOne(UserLike::class);
+    public function user_likes(){
+        return $this->hasMany(UserLike::class);
     }
 }
