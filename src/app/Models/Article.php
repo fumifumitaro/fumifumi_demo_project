@@ -23,8 +23,8 @@ class Article extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function user_bookmark(){
-        return $this->hasOne(UserBookmark::class);
+    public function user_bookmarks(){
+        return $this->hasMany(UserBookmark::class);
     }
 
     public function user_like(){
