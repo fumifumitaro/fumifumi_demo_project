@@ -3,9 +3,11 @@
 
 namespace App\Transformer;
 
+use App\Models\User;
 use App\Models\UserBookmark;
 use App\Models\UserLike;
 use App\Models\Article;
+use Illuminate\Support\Facades\Auth;
 use Parsedown;
 
 class ArticleTransformer
@@ -15,6 +17,7 @@ class ArticleTransformer
         $parse = new Parsedown();
 
         $data = [
+            'user_id' => Auth::id(),
             'id' => $article->id,
 
             'username' => $article->user->name,

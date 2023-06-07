@@ -27,12 +27,12 @@
           <el-table-column prop="date" label="Date" width="180" />
           <el-table-column label="Bookmark">
             <template slot-scope="scope">
-              <Bookmark  @click.native.stop :article="scope.row.id" :bookmark="scope.row.bookmark" />
+              <Bookmark  @click.native.stop :article="scope.row.id" :bookmark="scope.row.bookmark" v-show="isVisible" />
             </template>
           </el-table-column>
           <el-table-column label="Like">
             <template slot-scope="scope">
-              <Like  @click.native.stop :article="scope.row.id" :like="scope.row.like" />
+              <Like  @click.native.stop :article="scope.row.id" :like="scope.row.like" v-show="isVisible" />
             </template>
           </el-table-column>
         </el-table>
@@ -62,7 +62,15 @@ export default {
   data() {
     return {
       tableData: this.articles,
+      isVisible: true,
     };
+  },
+  created() {
+    if(this.tableData[0].user_id == null || this.tableData[0].user_id == ''){
+        this.isVisible = false;
+    } else {
+        this.isVisible = true;
+    }
   },
   methods: {
     goToForm: function () {
