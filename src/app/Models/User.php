@@ -48,7 +48,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasManyThrough(UserBookmark::class, Article::class);
     }
 
-    // public function user_likes(){
-    //     return $this->hasManyThrough(UserLike::class, Article::class);
-    // }
+    public function user_likes(){
+        return $this->hasManyThrough(UserLike::class, Article::class);
+    }
 }

@@ -1,10 +1,10 @@
 <template>
     <div>
         <button
-            label="bookmark"
+            label="like"
             :style="{ color: color, border: 0, backgroundColor: 'white', width: 'max-content' }"
-            @click="bookmark_function(); submit()"
-        >☆</button>
+            @click="like_function(); submit()"
+        >♡</button>
     </div>
 </template>
 
@@ -16,37 +16,37 @@ export default {
     },
     data(){
         return{
-            UserBookmark: this.bookmark,
+            UserLike: this.like,
             color: '',
         }
     },
     created() {
-            if(this.UserBookmark == 1){
-                this.color = 'yellow';
-            }else if(this.UserBookmark == 0){
+            if(this.UserLike == 1){
+                this.color = 'red';
+            }else if(this.UserLike == 0){
                 this.color = 'black';
             }
     },
     methods: {
-        bookmark_function() {
-            if(this.UserBookmark == 0){
-                this.UserBookmark = 1;
-                this.color = 'yellow';
+        like_function() {
+            if(this.UserLike == 0){
+                this.UserLike = 1;
+                this.color = 'red';
             }else{
-                this.UserBookmark = 0;
+                this.UserLike = 0;
                 this.color = 'black';
             }
         },
         submit: function () {
             axios
-            .post(this.$route("bookmark"),{
-                bookmark: this.UserBookmark,
+            .post(this.$route("like"),{
+                like: this.UserLike,
                 article: this.article
             })
         },
     },
     props: {
-        bookmark: Number,
+        like: Number,
         article: Number,
     },
 };

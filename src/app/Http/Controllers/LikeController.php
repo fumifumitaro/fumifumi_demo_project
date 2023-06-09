@@ -3,30 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\UserBookmark;
+use App\Models\UserLike;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
-class BookmarkController extends Controller
+class LikeController extends Controller
 {
 
     public function updateOrCreate(Request $request)
     {
         $user = Auth::id();
         $articleId = $request->input('article');
-        $bookmarkId = $request->input('bookmark');
+        $likeId = $request->input('like');
 
-        $userBookmark = UserBookmark::where('user_id', $user)
+        $userLike = UserLike::where('user_id', $user)
                         ->where('article_id', $articleId)
                         ->first();
 
-
-        if ($userBookmark) {
-            $userBookmark->update(['bookmark' => $bookmarkId]);
+        if ($userLike) {
+            $userLike->update(['like' => $likeId]);
         } else {
-            UserBookmark::create(['user_id' => $user, 'article_id' => $articleId, 'bookmark' => $bookmarkId]);
+            UserLike::create(['user_id' => $user, 'article_id' => $articleId, 'like' => $likeId]);
         }
         
         return response()->json(['message' => 'success']);

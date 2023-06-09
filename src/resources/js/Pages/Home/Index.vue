@@ -27,11 +27,13 @@
           <el-table-column prop="date" label="Date" width="180" />
           <el-table-column label="Bookmark">
             <template slot-scope="scope">
-              <Bookmark  @click.native.stop :article="scope.row.id" :bookmark="scope.row.bookmark" />
+              <Bookmark  @click.native.stop :article="scope.row.id" :bookmark="scope.row.bookmark" v-show="isVisible" />
             </template>
           </el-table-column>
-          <el-table-column label="Favorite">
-            <Favorite @click.native.stop/>
+          <el-table-column label="Like">
+            <template slot-scope="scope">
+              <Like  @click.native.stop :article="scope.row.id" :like="scope.row.like" v-show="isVisible" />
+            </template>
           </el-table-column>
         </el-table>
       </div>
@@ -42,13 +44,13 @@
 <script>
 import Layout from "@/Pages/Base/Layout";
 import Bookmark from "@/Pages/Components/Bookmark.vue";
-import Favorite from "@/Pages/Components/Favorite.vue";
+import Like from "@/Pages/Components/Like.vue";
 
 export default {
   components: {
     Layout,
     Bookmark,
-    Favorite,
+    Like,
   },
   props: {
     articles: {
@@ -60,7 +62,15 @@ export default {
   data() {
     return {
       tableData: this.articles,
+      isVisible: true,
     };
+  },
+  created() {
+    if(this.tableData[0].user_id == null || this.tableData[0].user_id == ''){
+        this.isVisible = false;
+    } else {
+        this.isVisible = true;
+    }
   },
   methods: {
     goToForm: function () {

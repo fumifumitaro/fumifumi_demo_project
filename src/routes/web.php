@@ -12,7 +12,8 @@
 */
 
 Route::get('/')->name('home')->uses('HomeController');
-Route::post('/')->name('bookmark')->uses('BookmarkController@updateOrCreate');
+Route::post('/like')->name('like')->uses('LikeController@updateOrCreate');
+Route::post('/bookmark')->name('bookmark')->uses('BookmarkController@updateOrCreate');
 
 Route::post('/media/upload')->name('media.upload')->uses('MediaController@store');
 
@@ -27,7 +28,8 @@ Route::group([
             Route::post('store')->name('store')->uses('CreateController@store');
         });
     Route::get('{article}')->name('show')->uses('ShowController'); // FIXME: Authミドルウェアグループの上に置きたいけど何故か認識されない
-    Route::post('{article}')->name('bookmark')->uses('BookmarkController@updateOrCreate');
+    Route::post('{article}/like')->name('like')->uses('LikeController@updateOrCreate');
+    Route::post('{article}/bookmark')->name('bookmark')->uses('BookmarkController@updateOrCreate');
 });
 
 Route::prefix('my_page')

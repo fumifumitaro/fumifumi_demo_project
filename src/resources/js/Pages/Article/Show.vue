@@ -9,8 +9,8 @@
         </div>
         <div :style="{ display: 'flex'}">
           <div class="article-content" v-html="article.content" />
-          <Bookmark bookmark="user_bookmark" :article="article.id" :bookmark="article.bookmark"/>
-          <Favorite />
+          <Bookmark bookmark="user_bookmark" :article="article.id" :bookmark="article.bookmark" v-show="isVisible"/>
+          <Like like="user_like" :article="article.id" :like="article.like" v-show="isVisible"/>
         </div>
       </div>
     </div>
@@ -20,13 +20,13 @@
 <script>
 import Layout from "@/Pages/Base/Layout";
 import Bookmark from "@/Pages/Components/Bookmark.vue";
-import Favorite from "@/Pages/Components/Favorite.vue";
+import Like from "@/Pages/Components/Like.vue";
 
 export default {
   components: {
     Layout,
     Bookmark,
-    Favorite,
+    Like,
   },
   props: {
     article: {
@@ -34,6 +34,18 @@ export default {
       required: true,
       default: null,
     },
+  },
+  data() {
+    return {
+      isVisible: true,
+    };
+  },
+  created() {
+    if(this.article.user_id == null || this.article.user_id == ''){
+        this.isVisible = false;
+    } else {
+        this.isVisible = true;
+    }
   },
 };
 </script>
