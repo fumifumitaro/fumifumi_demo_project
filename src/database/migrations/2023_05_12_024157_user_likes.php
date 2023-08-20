@@ -15,7 +15,7 @@ class UserLikes extends Migration
     {
         Schema::create('user_likes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->boolean('like')->default('false');
+            $table->boolean('like')->default(false);
 
             $table->bigInteger('user_id')->unsigned()->index();
             $table->bigInteger('article_id')->unsigned()->index();
